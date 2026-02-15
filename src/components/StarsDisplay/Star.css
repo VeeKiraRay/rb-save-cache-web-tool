@@ -1,0 +1,28 @@
+:root {
+  --star-gold-fill: #f59e0b;
+  --star-gold-glow: #fbbf24;
+  --star-default-fill: #fff;
+  --star-empty-fill: #374151;
+  --star-empty-stroke: "#4b5563";
+}
+
+.star {
+  display: inline-block;
+}
+.star.glow {
+  animation: star-glow 1.8s ease-in-out infinite;
+}
+@keyframes star-glow {
+  0% {
+    filter: drop-shadow(0 0 1px var(--star-gold-glow));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 2px var(--star-gold-glow));
+    transform: scale(1);
+  }
+  100% {
+    filter: drop-shadow(0 0 1px var(--star-gold-glow));
+    transform: scale(1);
+  }
+}

@@ -1,0 +1,70 @@
+/* ── Wrapper ── */
+.rbscv-seg {
+  display: inline-flex;
+  width: fit-content;
+  position: relative;
+  background: #0e0e11;
+  border: 1px solid #2e2e38;
+  border-radius: 100px;
+  padding: 4px;
+  gap: 2px;
+}
+
+/* ── Sliding thumb ── */
+.rbscv-seg__thumb {
+  position: absolute;
+  top: 4px;
+  height: calc(100% - 8px);
+  background: #312e81;
+  border: 1px solid #6366f1;
+  border-radius: 100px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+}
+
+.rbscv-seg__thumb--ready {
+  opacity: 1;
+  transition:
+    left 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    width 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ── Buttons ── */
+.rbscv-seg__btn {
+  position: relative;
+  z-index: 1;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 400;
+  border-radius: 100px;
+  padding: 10px 18px;
+  color: #9999b0;
+  transition: color 0.2s;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+}
+
+/* Size variants */
+.rbscv-seg--md .seg__btn {
+  font-size: 13px;
+  padding: 8px 20px;
+}
+
+/* Active state — text flips dark to sit on top of the coloured thumb */
+.rbscv-seg__btn--active {
+  color: var(--rbscv-text);
+  font-weight: 500;
+}
+
+.rbscv-seg__btn--active:hover {
+  background: #3d3a9e;
+}
+
+/* Hover — only when not active and not disabled */
+.rbscv-seg__btn:not(.seg__btn--active):not(.seg__btn--disabled):hover {
+  color: #fff;
+}
