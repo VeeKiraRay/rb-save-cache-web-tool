@@ -8,7 +8,11 @@ Lets the user read their save and cache file from Rock Band 3 and show them in a
 
 ## Usage
 
-If given both files their data will be combined to single row by song id but the user can also just give just either one.
+If given both files their data will be combined to single row by song id but the user can also just give either one of the file.
+
+Data available in [save file](./src/types/file/SongRowSave.ts).
+
+Data available in [cache file](./src/types/file/SongRowCache.ts).
 
 ## Modes
 
