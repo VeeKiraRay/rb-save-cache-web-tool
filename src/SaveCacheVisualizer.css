@@ -415,6 +415,7 @@ body {
   min-height: 0;
   position: relative;
   padding-bottom: 24px;
+  padding-right: 12px;
 }
 
 .rbscv-table {
