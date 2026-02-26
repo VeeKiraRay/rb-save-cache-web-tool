@@ -135,7 +135,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
 /* To fail fast and not parse corrupted data check that values with
  *    finite options are valid
  */
-const validateSongData = (parsedSong: SongRowSave) => {
+const validateSongData = (_parsedSong: SongRowSave) => {
   // TODO log some values to build validation.
   return false;
 };

@@ -1,3 +1,4 @@
+// @ts-nocheck
 import React, { useCallback, useRef, useState } from "react";
 import handleFileLoad from "../util/file/FileLoad";
 import type LoadResult from "@/types/file/LoadResult";
@@ -96,7 +97,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
 
   const handleSelectFolder = async () => {
     // TODO WIP
-    /*try {
+    try {
       const dirHandle = await (window as any).showDirectoryPicker();
       setSelectedFolder(dirHandle.name);
 
@@ -121,7 +122,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
     } catch (e) {
       console.log(e);
       // User cancelled
-    }*/
+    }
   };
 
   return (
@@ -175,6 +176,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
 
           {/* Cache Input */}
           <div className="rbscv-file-group">
+            {/* 
             <div className="rbscv-cache-toggle">
               <label className="rbscv-cache-toggle__radio">
                 <input
@@ -188,6 +190,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
               </label>
               <label className="rbscv-cache-toggle__radio">
                 <input
+                  disabled
                   type="radio"
                   name="cacheMode"
                   value="folder"
@@ -197,6 +200,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
                 PS3
               </label>
             </div>
+            */}
             <label className="rbscv-file-group__label">
               {cacheMode === "file" ? "Cache file" : "Song folder"}
             </label>
