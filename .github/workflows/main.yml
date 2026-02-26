@@ -1,31 +1,33 @@
-name: Build and Upload Dist
+# .github/workflows/release.yml
+name: Build and Release
 
 on:
   push:
-    branches: [ main ]
-  workflow_dispatch:
+    tags:
+      - 'v*'  # triggers on tags like v1.0.0, v2.1.3, etc.
+
+permissions:
+  contents: write
 
 jobs:
-  build:
+  build-and-release:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-      - name: Set up Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 24
+          cache: npm
 
-      - name: Install dependencies
-        run: npm install
+      - run: npm ci
 
-      - name: Build project
-        run: npm run build
+      - run: npm run build
 
-      - name: Upload index.html
-        uses: actions/upload-artifact@v4
+      - run: cp dist/index.html dist/rb-save-cache-web-tool.html
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v2
         with:
-          name: index-html
-          path: dist/index.html
+          files: dist/rb-save-cache-web-tool.html
+          generate_release_notes: true
