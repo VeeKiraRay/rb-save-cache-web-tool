@@ -21,6 +21,7 @@ import ColumnSettingsModal from "./Table/ColumnSettingsModal";
 import type SongRowCombined from "@/types/file/SongRowCombined";
 import SlidingPillSelector from "./SlidingPillSelector/SlidingPillSelector";
 import TableView from "./Table/TableView";
+import TableViewFlat from "./Table/TableViewFlat";
 
 const multiSelectFilter = (
   row: Row<SongRowCombined>,
@@ -57,7 +58,9 @@ const presenceFilter: FilterFn<SongRowCombined> = (
 
 type SongRowValue = SongRowCombined[keyof SongRowCombined];
 
-const buildTanStackColumns = (): ColumnDef<SongRowCombined, SongRowValue>[] =>
+const buildTanStackColumns = (
+  virtualized: boolean,
+): ColumnDef<SongRowCombined, SongRowValue>[] =>
   ColumnDefinitions.COLUMN_DEFINITIONS.map((def) => ({
     accessorKey: def.key,
     id: def.key,
@@ -79,6 +82,13 @@ const buildTanStackColumns = (): ColumnDef<SongRowCombined, SongRowValue>[] =>
     },
     cell: (info): ReactElement => {
       const value = info.getValue();
+      if (!virtualized) {
+        if (def.render === "rowCount") {
+          return <span>{info.row.index + 1}</span>;
+        } else {
+          return <span>{String(value ?? "")}</span>;
+        }
+      }
       switch (def.render) {
         case "rowCount":
           return <span>{info.row.index + 1}</span>;
@@ -94,6 +104,14 @@ const buildTanStackColumns = (): ColumnDef<SongRowCombined, SongRowValue>[] =>
     },
   }));
 
+const buildDefaultVisibility = (): VisibilityState => {
+  const vis: VisibilityState = {};
+  ColumnDefinitions.COLUMN_DEFINITIONS.forEach((def) => {
+    vis[def.key] = ColumnDefinitions.DEFAULT_VISIBLE_COLUMNS.includes(def.key);
+  });
+  return vis;
+};
+
 interface TableProps {
   data: SongRowCombined[];
   viewMode: string;
@@ -108,17 +126,7 @@ const TableContainer: React.FC<TableProps> = ({
   // --- TanStack state ---
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
-    () => {
-      const vis: VisibilityState = {};
-      ColumnDefinitions.COLUMN_DEFINITIONS.forEach((def) => {
-        vis[def.key] = ColumnDefinitions.DEFAULT_VISIBLE_COLUMNS.includes(
-          def.key,
-        );
-      });
-      return vis;
-    },
-  );
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(buildDefaultVisibility);
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>(() =>
     ColumnDefinitions.COLUMN_DEFINITIONS.map((def) => def.key),
   );
@@ -133,8 +141,12 @@ const TableContainer: React.FC<TableProps> = ({
 
   // --- UI state ---
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+  const [virtualized, setVirtualized] = useState<boolean>(true);
   // --- Build columns (stable reference) ---
-  const columns = useMemo(() => buildTanStackColumns(), []);
+  const columns = useMemo(
+    () => buildTanStackColumns(virtualized),
+    [virtualized],
+  );
 
   // --- TanStack Table instance ---
   const reactTable = useReactTable<SongRowCombined>({
@@ -202,6 +214,21 @@ const TableContainer: React.FC<TableProps> = ({
                 onChange={modeOnChange}
               />
             </div>
+            <div className="rbscv-toolbar__virtualized">
+              <label className="rbscv-toolbar__checkbox-label">
+                <input
+                  type="checkbox"
+                  checked={virtualized}
+                  onChange={(e) => {
+                  setVirtualized(e.target.checked);
+                  setSorting([]);
+                  setColumnFilters([]);
+                  setColumnVisibility(buildDefaultVisibility());
+                }}
+                />
+                Virtualized table
+              </label>
+            </div>
             <div className="rbscv-toolbar__column-selector">
               <button
                 className="rbscv-btn"
@@ -225,11 +252,19 @@ const TableContainer: React.FC<TableProps> = ({
         </div>
       </div>
 
-      <TableView
-        data={data}
-        reactTable={reactTable}
-        setColumnOrder={setColumnOrder}
-      />
+      {virtualized ? (
+        <TableView
+          data={data}
+          reactTable={reactTable}
+          setColumnOrder={setColumnOrder}
+        />
+      ) : (
+        <TableViewFlat
+          data={data}
+          reactTable={reactTable}
+          setColumnOrder={setColumnOrder}
+        />
+      )}
 
       {/* Settings modal */}
       {settingsOpen && (

@@ -408,6 +408,22 @@ body {
   color: var(--rbscv-accent-text);
 }
 
+.rbscv-toolbar__checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--rbscv-font-size-small);
+  color: var(--rbscv-text-secondary);
+  cursor: pointer;
+}
+
+.rbscv-toolbar__checkbox-label input {
+  accent-color: var(--rbscv-accent);
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+}
+
 /* ---- Data Table ---- */
 .rbscv-table-wrap {
   flex: 1;
@@ -423,6 +439,12 @@ body {
   table-layout: fixed;
   border-collapse: separate;
   border-spacing: 0;
+}
+
+.rbscv-table-flat {
+  table-layout: auto;
+  width: max-content;
+  min-width: 100%;
 }
 
 .rbscv-table thead {
