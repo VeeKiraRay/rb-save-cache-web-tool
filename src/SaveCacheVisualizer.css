@@ -515,8 +515,6 @@ body {
 /* Filter Dropdown */
 .rbscv-filter-dropdown {
   position: fixed;
-  top: 100%;
-  left: 0;
   z-index: 100;
   background: var(--rbscv-surface);
   border: 1px solid var(--rbscv-border);
@@ -570,6 +568,43 @@ body {
 
 .rbscv-filter-option input {
   accent-color: var(--rbscv-accent);
+}
+
+.rbscv-filter-alpha-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-top: 4px;
+  min-width: 238px;
+}
+
+.rbscv-filter-alpha-btn {
+  padding: 6px 0;
+  border-radius: 3px;
+  border: 1px solid var(--rbscv-border);
+  background: none;
+  color: var(--rbscv-text);
+  font-family: var(--rbscv-font-mono);
+  font-size: var(--rbscv-font-size-xs);
+  cursor: pointer;
+  text-align: center;
+  line-height: 1;
+}
+
+.rbscv-filter-alpha-btn:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--rbscv-accent) 12%, transparent);
+  border-color: var(--rbscv-accent);
+}
+
+.rbscv-filter-alpha-btn--selected {
+  background: color-mix(in srgb, var(--rbscv-accent) 20%, transparent);
+  border-color: var(--rbscv-accent);
+  color: var(--rbscv-accent);
+}
+
+.rbscv-filter-alpha-btn--disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
 }
 
 /* Table body */

@@ -137,10 +137,11 @@ const TableView = ({ data, reactTable, setColumnOrder }: TableProps) => {
                   const header = headerGroup.headers[virtualColumn.index];
                   if (!header) return null;
                   const isSorted = header.column.getIsSorted();
-                  const filterValue = header.column.getFilterValue() as
-                    | Set<unknown>
-                    | undefined;
-                  const hasFilterActive = (filterValue?.size ?? 0) > 0;
+                  const filterValue = header.column.getFilterValue();
+                  const hasFilterActive =
+                    filterValue instanceof Set
+                      ? filterValue.size > 0
+                      : filterValue != null;
 
                   return (
                     <th

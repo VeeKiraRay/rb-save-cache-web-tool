@@ -12,7 +12,11 @@ const MetadataSection = ({ resultMetadata }: MetadataSectionProps) => {
     <section className="rbscv-meta-bar">
       {resultMetadata.files.map((f) => (
         <>
-          <div key={`${f.name}-${f.rowCount}`} className="rbscv-meta-item">
+          <div
+            key={`${f.name}-${f.rowCount}`}
+            id={`${f.name}-${f.rowCount}`}
+            className="rbscv-meta-item"
+          >
             <svg
               width="14"
               height="14"

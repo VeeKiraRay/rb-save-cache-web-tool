@@ -4,8 +4,8 @@ import Helper from "@/util/Helper";
 
 const INITIAL_SIZE = {
   LONG: 300,
-  MEDIUM: 150,
-  SHORT: 110,
+  MEDIUM: 160,
+  SHORT: 120,
   SHORTEST: 80,
 };
 
@@ -29,6 +29,7 @@ const general: ColumnDefinition[] = [
     group: "General",
     size: INITIAL_SIZE.LONG,
     isFiltrable: true,
+    filterType: "alphaGroup",
   },
   {
     key: "songName",
@@ -36,6 +37,7 @@ const general: ColumnDefinition[] = [
     group: "General",
     size: INITIAL_SIZE.LONG,
     isFiltrable: true,
+    filterType: "alphaGroup",
   },
   {
     key: "lighterRating",
@@ -51,6 +53,7 @@ const general: ColumnDefinition[] = [
     group: "General",
     size: INITIAL_SIZE.SHORT,
     isFiltrable: true,
+    filterType: "presence",
   },
   {
     key: "gameVersion",
@@ -72,6 +75,7 @@ const general: ColumnDefinition[] = [
     group: "General",
     size: INITIAL_SIZE.LONG,
     isFiltrable: true,
+    filterType: "alphaGroup",
   },
   {
     key: "trackNumber",
@@ -79,6 +83,7 @@ const general: ColumnDefinition[] = [
     group: "General",
     size: INITIAL_SIZE.SHORT,
     isFiltrable: true,
+    filterType: "presence",
   },
   {
     key: "yearRecorded",
@@ -298,6 +303,8 @@ const getInstrumentSaveGroup = (
       label: `${upperCasedInstrumentName} top score`,
       group: upperCasedInstrumentName,
       size: 150,
+      isFiltrable: true,
+      filterType: "presence",
     },
     {
       key: `${instrumentName}TopScoreDifficulty`,
@@ -305,6 +312,7 @@ const getInstrumentSaveGroup = (
       group: upperCasedInstrumentName,
       size: 160,
       render: "difficulty",
+      isFiltrable: true,
     },
     {
       key: `${instrumentName}StarsEasy`,
@@ -312,6 +320,7 @@ const getInstrumentSaveGroup = (
       group: upperCasedInstrumentName,
       size: 130,
       render: "stars",
+      isFiltrable: true,
     },
     {
       key: `${instrumentName}PercentEasy`,
@@ -326,6 +335,7 @@ const getInstrumentSaveGroup = (
       group: upperCasedInstrumentName,
       size: 130,
       render: "stars",
+      isFiltrable: true,
     },
     {
       key: `${instrumentName}PercentMedium`,
@@ -340,6 +350,7 @@ const getInstrumentSaveGroup = (
       group: upperCasedInstrumentName,
       size: 130,
       render: "stars",
+      isFiltrable: true,
     },
     {
       key: `${instrumentName}PercentHard`,
@@ -354,6 +365,7 @@ const getInstrumentSaveGroup = (
       group: upperCasedInstrumentName,
       size: 140,
       render: "stars",
+      isFiltrable: true,
     },
     {
       key: `${instrumentName}PercentExpert`,

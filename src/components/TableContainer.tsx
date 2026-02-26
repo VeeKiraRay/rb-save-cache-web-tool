@@ -1,4 +1,4 @@
-import React, { useState, useMemo, type ReactElement } from "react";
+import React, { useState, useMemo, useEffect, type ReactElement } from "react";
 import {
   useReactTable,
   getCoreRowModel,
@@ -6,6 +6,7 @@ import {
   getFilteredRowModel,
   getFacetedUniqueValues,
   type ColumnDef,
+  type FilterFn,
   type Row,
   type SortingState,
   type ColumnFiltersState,
@@ -30,6 +31,30 @@ const multiSelectFilter = (
   return filterValue.has(row.getValue(columnId));
 };
 
+const alphaGroupFilter: FilterFn<SongRowCombined> = (
+  row,
+  columnId,
+  filterValue: Set<string>,
+) => {
+  if (!filterValue?.size) return true;
+  const val = String(row.getValue(columnId) ?? "");
+  const firstChar = val[0]?.toUpperCase() ?? "";
+  const bucket = /[A-Z]/.test(firstChar) ? firstChar : "#";
+  return filterValue.has(bucket);
+};
+
+const presenceFilter: FilterFn<SongRowCombined> = (
+  row,
+  columnId,
+  filterValue: "nonempty" | "empty",
+) => {
+  const val = row.getValue(columnId);
+  const isEmpty = val === null || val === undefined || val === "" || val === 0;
+  if (filterValue === "nonempty") return !isEmpty;
+  if (filterValue === "empty") return isEmpty;
+  return true;
+};
+
 type SongRowValue = SongRowCombined[keyof SongRowCombined];
 
 const buildTanStackColumns = (): ColumnDef<SongRowCombined, SongRowValue>[] =>
@@ -40,11 +65,17 @@ const buildTanStackColumns = (): ColumnDef<SongRowCombined, SongRowValue>[] =>
     size: def.size,
     minSize: 80,
     maxSize: 600,
-    filterFn: multiSelectFilter,
+    filterFn:
+      def.filterType === "alphaGroup"
+        ? "alphaGroup"
+        : def.filterType === "presence"
+          ? "presence"
+          : multiSelectFilter,
     meta: {
       group: def.group,
       render: def.render,
       isFiltrable: def.isFiltrable,
+      filterType: def.filterType,
     },
     cell: (info): ReactElement => {
       const value = info.getValue();
@@ -93,6 +124,13 @@ const TableContainer: React.FC<TableProps> = ({
   );
   const [columnSizing, setColumnSizing] = useState<Record<string, number>>({});
 
+  // Clear filters for columns that become hidden
+  useEffect(() => {
+    setColumnFilters((prev) =>
+      prev.filter((filter) => columnVisibility[filter.id] !== false),
+    );
+  }, [columnVisibility]);
+
   // --- UI state ---
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
   // --- Build columns (stable reference) ---
@@ -102,6 +140,7 @@ const TableContainer: React.FC<TableProps> = ({
   const reactTable = useReactTable<SongRowCombined>({
     data,
     columns,
+    filterFns: { alphaGroup: alphaGroupFilter, presence: presenceFilter },
     state: {
       sorting,
       columnFilters,
