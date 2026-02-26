@@ -37,6 +37,12 @@ const TableView = ({ data, reactTable, setColumnOrder }: TableProps) => {
     overscan: 3,
   });
 
+  const columnSizing = reactTable.getState().columnSizing;
+
+  useEffect(() => {
+    columnVirtualizer.measure();
+  }, [columnSizing, columnVirtualizer]);
+
   const virtualColumns = columnVirtualizer.getVirtualItems();
   const totalColumnsWidth = columnVirtualizer.getTotalSize();
 
