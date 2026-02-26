@@ -27,7 +27,7 @@ This app would not be possible without the groundwork, tools, and assistance of 
 
 Credit where credit is due:
 
-- **trojannemo** — Nautilus with cache file logic, dta parsing and stfs-file extracting
+- **trojannemo** — Nautilus with cache file logic, dta parsing and stfs-file extracting.  
   https://github.com/trojannemo/Nautilus
 
 - **StackOverflow0x** — Save Scores Viewer with logic to decrypt the Rock Band 3 save file contents.
