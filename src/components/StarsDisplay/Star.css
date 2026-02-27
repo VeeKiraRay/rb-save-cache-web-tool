@@ -10,7 +10,7 @@
   display: inline-block;
 }
 .star.glow {
-  animation: star-glow 1.8s ease-in-out infinite;
+  /*animation: star-glow 1.8s ease-in-out infinite;*/
 }
 @keyframes star-glow {
   0% {

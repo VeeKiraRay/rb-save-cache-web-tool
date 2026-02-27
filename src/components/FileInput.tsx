@@ -131,7 +131,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
         <h2 className="rbscv-file-section__title">Load Files</h2>
         <p className="rbscv-file-section__desc">
           Drop or select your save file (.dat) and cache file to view and
-          compare song data. You can also scan a local folder for cache files.
+          compare song data.
         </p>
       </div>
       <div className="rbscv-file-section__inputs">

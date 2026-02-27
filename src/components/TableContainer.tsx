@@ -126,7 +126,9 @@ const TableContainer: React.FC<TableProps> = ({
   // --- TanStack state ---
   const [sorting, setSorting] = useState<SortingState>([]);
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(buildDefaultVisibility);
+  const [columnVisibility, setColumnVisibility] = useState<VisibilityState>(
+    buildDefaultVisibility,
+  );
   const [columnOrder, setColumnOrder] = useState<ColumnOrderState>(() =>
     ColumnDefinitions.COLUMN_DEFINITIONS.map((def) => def.key),
   );
@@ -220,11 +222,11 @@ const TableContainer: React.FC<TableProps> = ({
                   type="checkbox"
                   checked={virtualized}
                   onChange={(e) => {
-                  setVirtualized(e.target.checked);
-                  setSorting([]);
-                  setColumnFilters([]);
-                  setColumnVisibility(buildDefaultVisibility());
-                }}
+                    setVirtualized(e.target.checked);
+                    setSorting([]);
+                    setColumnFilters([]);
+                    setColumnVisibility(buildDefaultVisibility());
+                  }}
                 />
                 Virtualized table
               </label>
@@ -234,17 +236,6 @@ const TableContainer: React.FC<TableProps> = ({
                 className="rbscv-btn"
                 onClick={() => setSettingsOpen(true)}
               >
-                <svg
-                  width="14"
-                  height="14"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="12" cy="12" r="3" />
-                  <path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" />
-                </svg>
                 Columns
               </button>
             </div>

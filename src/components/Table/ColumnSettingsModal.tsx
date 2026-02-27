@@ -45,9 +45,7 @@ const ColumnSettingsModal = ({ table, onClose }: SettingsModalProps) => {
     <div className="rbscv-modal-backdrop" onClick={onClose}>
       <div className="rbscv-modal" onClick={(e) => e.stopPropagation()}>
         <div className="rbscv-modal__header">
-          <span className="rbscv-modal__title">
-            <span className="rbscv-header__diamond">◆</span> Column Settings
-          </span>
+          <span className="rbscv-modal__title">Column Settings</span>
           <button className="rbscv-modal__close" onClick={onClose}>
             ✕
           </button>
