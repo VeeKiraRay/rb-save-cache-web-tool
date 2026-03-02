@@ -38,4 +38,26 @@ export default interface DtaSong {
   master?: number;
   vocal_gender?: string;
   rank: DtaSongRank;
+  author?: string;
+  band_fail_cue?: string;
+  encoding?: string;
+  guide_pitch_volume?: string;
+  sub_genre?: string;
+}
+
+export interface DtaMeta {
+  createdUsingMagma?: string;
+  languages?: string;
+  songAuthored?: string;
+  bass2x?: number;
+  caTemh?: number;
+  convert?: number;
+  diyStems?: number;
+  expertOnly?: number;
+  karaoke?: number;
+  multitrack?: number;
+  partialMultitrack?: number;
+  rhythmBass?: number;
+  rhythmKeys?: number;
+  unpitchedVocals?: number;
 }

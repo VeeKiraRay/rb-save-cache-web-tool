@@ -32,4 +32,23 @@ export default interface SongRowCache {
   songLength: string;
   isMaster: boolean;
   vocalGender: string;
+  // Available only from songs.dta
+  author?: string;
+  bandFailCue?: string;
+  encoding?: string;
+  guidePitchVolume?: string;
+  subgenre?: string;
+  magmaVersion?: string;
+  languages?: string;
+  doubleBass?: boolean;
+  catEMH?: boolean;
+  convert?: boolean;
+  diyStems?: boolean;
+  expertOnly?: boolean;
+  karaoke?: boolean;
+  multitrack?: boolean;
+  partialMultitrack?: boolean;
+  rhythmBass?: boolean;
+  rhythmKeys?: boolean;
+  unpitchedVocals?: boolean;
 }

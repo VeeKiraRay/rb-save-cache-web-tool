@@ -19,7 +19,6 @@ import Rating from "./data/Rating";
 import TonicNote from "./data/TonicNote";
 import Tonality from "./data/Tonality";
 import CacheFileUtil from "./CacheFileUtil";
-import { STFSPackage } from "../stfs/STFSPackage";
 import STFSResder from "../stfs/STFSReader";
 
 const calculateOffsetToSongData = (
@@ -110,19 +109,6 @@ const parseInstrumentDifficulties = (
       instrumentName as InstrumentName,
       instrumentDifficulty,
     );
-  }
-};
-
-const getExtractedSTFSFile = (bytes: Uint8Array) => {
-  try {
-    const pkg = new STFSPackage(bytes);
-    for (const file of pkg.files) {
-      if (file.name === "songcache" || file.name === "rbdxcache") {
-        return pkg.extractFile(file);
-      }
-    }
-  } catch (e) {
-    console.error("failed to parse STFS: ", e);
   }
 };
 

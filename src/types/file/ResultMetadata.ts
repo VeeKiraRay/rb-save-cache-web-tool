@@ -1,6 +1,8 @@
-import type LoadMetaEntry from "./LoadMetaEntry";
+import type LoadFileMetaEntry from "./LoadFileMetaEntry";
+import type LoadFolderMetaEntry from "./LoadFolderMetaEntry";
 
 export default interface ResultMetadata {
-  files: LoadMetaEntry[];
+  files: LoadFileMetaEntry[];
+  folder?: LoadFolderMetaEntry;
   totalRows?: number;
 }

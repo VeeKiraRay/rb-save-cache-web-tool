@@ -8,6 +8,8 @@ import type ResultMetadata from "@/types/file/ResultMetadata";
 import type LoadError from "@/types/file/LoadError";
 import type SongRowCombined from "@/types/file/SongRowCombined";
 import DefaultValues from "./common/DefaultValues";
+import SongParser from "./rb3songs/SongParser";
+import type FolderData from "@/types/file/FolderData";
 
 const mergeArraysById = (
   primaryData: SongRowCombined[],
@@ -25,12 +27,18 @@ const mergeArraysById = (
 const handleFileLoad = async (
   file1: File | null,
   file2: File | null,
+  folder: FolderData | null,
 ): Promise<LoadResult | LoadError> => {
   try {
-    const [result1, result2] = (await Promise.all([
+    const [result1, result2, folderResult] = (await Promise.all([
       SaveFileParser.readSaveFile(file1),
       CacheFileParser.readCacheFile(file2),
-    ])) as [ReadResult<SongRowSave> | null, ReadResult<SongRowCache> | null];
+      SongParser.readSongs(folder),
+    ])) as [
+      ReadResult<SongRowSave> | null,
+      ReadResult<SongRowCache> | null,
+      ReadResult<SongRowCache> | null,
+    ];
 
     let saveDataRows: SongRowCombined[] = [];
     let cacheDataRows: SongRowCombined[] = [];
@@ -40,8 +48,10 @@ const handleFileLoad = async (
       saveDataRows = result1.songData ?? [];
     }
 
-    if (result2) {
-      cacheDataRows = result2.songData ?? [];
+    const songMetadataResult = result2 ? result2 : folderResult;
+
+    if (songMetadataResult) {
+      cacheDataRows = songMetadataResult.songData ?? [];
       if (saveDataRows.length > 0 && cacheDataRows.length > 0) {
         const originalSaveDataRows = saveDataRows;
         const originalCacheDataRows = cacheDataRows;
@@ -56,15 +66,24 @@ const handleFileLoad = async (
       }
     }
 
-    [result1, result2].forEach((r) => {
-      if (!r || !r.fileMetaData) return;
-      meta.files.push({
-        name: r.fileMetaData.name,
-        size: r.fileMetaData.size,
-        lastModified: new Date(r.fileMetaData.lastModified).toLocaleString(),
-        rowCount: r.songData?.length,
-        error: r.error,
-      });
+    [result1, songMetadataResult].forEach((r) => {
+      if (r && r.fileMetaData) {
+        meta.files.push({
+          name: r.fileMetaData.name,
+          size: r.fileMetaData.size,
+          lastModified: new Date(r.fileMetaData.lastModified).toLocaleString(),
+          rowCount: r.songData?.length,
+          error: r.error,
+        });
+      } else if (r && r.folderMetaData) {
+        meta.folder = {
+          name: r.folderMetaData.name,
+          fileType: r.folderMetaData.fileType,
+          filesFound: r.folderMetaData.filesFound,
+          rowCount: r.songData?.length,
+          error: r.error,
+        };
+      }
     });
 
     meta.totalRows = saveDataRows.length;

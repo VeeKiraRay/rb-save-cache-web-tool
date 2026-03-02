@@ -6,7 +6,7 @@ const setDefaultValuesForSongRowCombined = <T>(
   defaults: T,
 ): T => {
   const result = { ...defaults };
-  for (const key of Object.keys(defaults) as (keyof T)[]) {
+  for (const key of Object.keys(obj) as (keyof T)[]) {
     if (obj[key] !== undefined && obj[key] !== "") {
       result[key] = obj[key]!;
     }

@@ -167,4 +167,12 @@ export const DEFAULT_SONG_ROW_COMBINED: SongRowCombined = {
   bandPercentHard: NUMBER_VALUE_NOT_SET,
   bandStarsExpert: NUMBER_VALUE_NOT_SET,
   bandPercentExpert: NUMBER_VALUE_NOT_SET,
+
+  author: STRING_VALUE_NOT_SET,
+  bandFailCue: STRING_VALUE_NOT_SET,
+  encoding: STRING_VALUE_NOT_SET,
+  guidePitchVolume: STRING_VALUE_NOT_SET,
+  subgenre: STRING_VALUE_NOT_SET,
+  magmaVersion: STRING_VALUE_NOT_SET,
+  languages: STRING_VALUE_NOT_SET,
 };

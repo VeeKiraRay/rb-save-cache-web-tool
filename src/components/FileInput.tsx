@@ -1,8 +1,9 @@
-// @ts-nocheck
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState } from "react";
 import handleFileLoad from "../util/file/FileLoad";
 import type LoadResult from "@/types/file/LoadResult";
 import type LoadError from "@/types/file/LoadError";
+import DropZone from "./DropZone";
+import type FolderData from "@/types/file/FolderData";
 
 type CacheMode = "file" | "folder";
 
@@ -14,18 +15,35 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
   const [fileError, setFileError] = useState<string>("");
   const [saveFile, setSaveFile] = useState<File | null>(null);
   const [cacheFile, setCacheFile] = useState<File | null>(null);
-  const [isDraggingSave, setIsDraggingSave] = useState(false);
-  const [isDraggingCache, setIsDraggingCache] = useState(false);
   const [cacheMode, setCacheMode] = useState<CacheMode>("file");
   const [selectedFolder, setSelectedFolder] = useState<string | null>(null);
+  const [selectedFolderFiles, setSelectedFolderFiles] =
+    useState<FileList | null>(null);
 
-  const saveInputRef = useRef<HTMLInputElement | null>(null);
-  const cacheInputRef = useRef<HTMLInputElement | null>(null);
+  const handleSaveFileSelect = (file: File) => {
+    setFileError("");
+    setSaveFile(file);
+  };
+
+  const handleCacheFileSelect = (file: File) => {
+    setFileError("");
+    setCacheFile(file);
+  };
+
+  const handleFolderSelect = (name: string, files: FileList) => {
+    setFileError("");
+    setSelectedFolder(name);
+    setSelectedFolderFiles(files);
+  };
 
   const handleFilesLoaded = useCallback(
-    async (file1: File | null, file2: File | null): Promise<void> => {
+    async (
+      file1: File | null,
+      file2: File | null,
+      folder: FolderData | null,
+    ): Promise<void> => {
       setFileError("");
-      const fileResponse = await handleFileLoad(file1, file2);
+      const fileResponse = await handleFileLoad(file1, file2, folder);
       if ("errorMessage" in fileResponse) {
         setFileError(fileResponse.errorMessage);
       }
@@ -34,95 +52,17 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
     [handleFileLoadingResponse],
   );
 
-  const pickFolderAndSearch = useCallback(async () => {
-    // Ask user to pick a directory
-    const dirHandle = await (window as any).showDirectoryPicker();
-
-    const results: File[] = [];
-
-    // Recursively walk the directory
-    async function walkDirectory(handle: FileSystemDirectoryHandle) {
-      for await (const entry of handle.values()) {
-        if (entry.kind === "file") {
-          if (entry.name.toLowerCase() === "songs.dta") {
-            const file = await entry.getFile();
-            results.push(file);
-          }
-        } else if (entry.kind === "directory") {
-          await walkDirectory(entry);
-        }
-      }
-    }
-
-    await walkDirectory(dirHandle);
-    return results;
-  }, []);
-
   const handleLoad = () => {
-    if (cacheMode === "folder") {
-      //pickFolderAndSearch();
+    const cacheFileToUse = cacheMode === "file" ? cacheFile : null;
+    const folderToUse: FolderData =
+      cacheMode === "folder"
+        ? { files: selectedFolderFiles, folderName: selectedFolder }
+        : null;
+    if (!saveFile && !cacheFileToUse && !folderToUse) {
+      setFileError("Please select at least one file or folder.");
       return;
     }
-    if (!saveFile && !cacheFile) {
-      setFileError("Please select at least one file.");
-      return;
-    }
-    handleFilesLoaded(saveFile, cacheFile);
-  };
-
-  const handleSaveDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDraggingSave(false);
-    const files = e.dataTransfer.files;
-    if (e.dataTransfer.files.length > 1) {
-      return;
-    }
-    setSaveFile(files[0]);
-  }, []);
-
-  const handleCacheDrop = useCallback((e: React.DragEvent) => {
-    e.preventDefault();
-    setIsDraggingCache(false);
-    const files = e.dataTransfer.files;
-    if (files.length > 1) {
-      return;
-    }
-    setCacheFile(files[0]);
-  }, []);
-
-  const preventDefaults = (e: React.DragEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
-  const handleSelectFolder = async () => {
-    // TODO WIP
-    try {
-      const dirHandle = await (window as any).showDirectoryPicker();
-      setSelectedFolder(dirHandle.name);
-
-      const results: File[] = [];
-
-      // Recursively walk the directory
-      async function walkDirectory(handle: FileSystemDirectoryHandle) {
-        for await (const entry of handle.values()) {
-          if (entry.kind === "file") {
-            if (entry.name.toLowerCase() === "songs.dta") {
-              const file = await entry.getFile();
-              results.push(file);
-            }
-          } else if (entry.kind === "directory") {
-            await walkDirectory(entry);
-          }
-        }
-      }
-
-      await walkDirectory(dirHandle);
-      console.log(results);
-    } catch (e) {
-      console.log(e);
-      // User cancelled
-    }
+    handleFilesLoaded(saveFile, cacheFileToUse, folderToUse);
   };
 
   return (
@@ -139,44 +79,18 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
           {/* Save File Drop Zone */}
           <div className="rbscv-file-group">
             <label className="rbscv-file-group__label">Save File</label>
-            <div
-              className={`rbscv-drop-zone${isDraggingSave ? " rbscv-drop-zone--dragging" : ""}${saveFile ? " rbscv-drop-zone--has-file" : ""}`}
-              onClick={() => saveInputRef.current?.click()}
-              onDragOver={(e) => {
-                preventDefaults(e);
-                setIsDraggingSave(true);
-              }}
-              onDragEnter={(e) => {
-                preventDefaults(e);
-                setIsDraggingSave(true);
-              }}
-              onDragLeave={() => setIsDraggingSave(false)}
-              onDrop={handleSaveDrop}
-            >
-              {saveFile ? (
-                <span className="rbscv-drop-zone__filename">
-                  {saveFile.name}
-                </span>
-              ) : (
-                <span className="rbscv-drop-zone__text">
-                  Drop save file here or click to browse
-                </span>
-              )}
-              <input
-                ref={saveInputRef}
-                type="file"
-                style={{ display: "none" }}
-                onChange={(e) => {
-                  const f = e.target.files?.[0] || null;
-                  if (f) setSaveFile(f);
-                }}
-              />
-            </div>
+            <DropZone
+              placeholder="Drop save file here or click to browse"
+              displayName={saveFile?.name ?? null}
+              onFileSelect={handleSaveFileSelect}
+              onUnsupportedDrop={() =>
+                setFileError("Only a single file can be dropped here.")
+              }
+            />
           </div>
 
           {/* Cache Input */}
           <div className="rbscv-file-group">
-            {/* 
             <div className="rbscv-cache-toggle">
               <label className="rbscv-cache-toggle__radio">
                 <input
@@ -186,68 +100,44 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
                   checked={cacheMode === "file"}
                   onChange={() => setCacheMode("file")}
                 />
-                Xbox / Wii
+                File
               </label>
               <label className="rbscv-cache-toggle__radio">
                 <input
-                  disabled
                   type="radio"
                   name="cacheMode"
                   value="folder"
                   checked={cacheMode === "folder"}
                   onChange={() => setCacheMode("folder")}
                 />
-                PS3
+                Folder
               </label>
             </div>
-            */}
             <label className="rbscv-file-group__label">
               {cacheMode === "file" ? "Cache file" : "Song folder"}
             </label>
 
             {cacheMode === "file" ? (
-              <div
-                className={`rbscv-drop-zone${isDraggingCache ? " rbscv-drop-zone--dragging" : ""}${cacheFile ? " rbscv-drop-zone--has-file" : ""}`}
-                onClick={() => cacheInputRef.current?.click()}
-                onDragOver={(e) => {
-                  preventDefaults(e);
-                  setIsDraggingCache(true);
-                }}
-                onDragEnter={(e) => {
-                  preventDefaults(e);
-                  setIsDraggingCache(true);
-                }}
-                onDragLeave={() => setIsDraggingCache(false)}
-                onDrop={handleCacheDrop}
-              >
-                {cacheFile ? (
-                  <span className="rbscv-drop-zone__filename">
-                    {cacheFile.name}
-                  </span>
-                ) : (
-                  <span className="rbscv-drop-zone__text">
-                    Drop cache file here or click to browse
-                  </span>
-                )}
-                <input
-                  ref={cacheInputRef}
-                  type="file"
-                  style={{ display: "none" }}
-                  onChange={(e) => {
-                    const f = e.target.files?.[0] || null;
-                    if (f) setCacheFile(f);
-                  }}
-                />
-              </div>
+              <DropZone
+                placeholder="Drop cache file here or click to browse"
+                displayName={cacheFile?.name ?? null}
+                onFileSelect={handleCacheFileSelect}
+                onUnsupportedDrop={() =>
+                  setFileError("Only a single file can be dropped here.")
+                }
+              />
             ) : (
-              <div className="rbscv-folder-picker">
-                <input type="file" id="folder-picker" webkitdirectory="" />
-                {selectedFolder && (
-                  <span className="rbscv-folder-picker__name">
-                    {selectedFolder}
-                  </span>
-                )}
-              </div>
+              <DropZone
+                placeholder="Click to browse for a folder"
+                displayName={selectedFolder}
+                isFolder
+                onFolderSelect={handleFolderSelect}
+                onUnsupportedDrop={() =>
+                  setFileError(
+                    "Drag & drop is not supported for folders. Click to browse.",
+                  )
+                }
+              />
             )}
           </div>
 

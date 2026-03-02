@@ -1,4 +1,4 @@
-export default interface LoadMetaEntry {
+export default interface LoadFileMetaEntry {
   name: string;
   size: number;
   lastModified: string;

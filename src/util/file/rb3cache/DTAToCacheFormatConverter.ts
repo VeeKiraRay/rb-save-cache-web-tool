@@ -10,9 +10,34 @@ import SongSource from "./data/SongSource";
 import type { DtaValue } from "@/types/file/dta/DtaValue";
 import TonicNote from "./data/TonicNote";
 import Tonality from "./data/Tonality";
+import type { DtaMeta } from "@/types/file/dta/DtaSong";
+
+const readAsRawString = async (file: File): Promise<string> => {
+  const buffer = await file.arrayBuffer();
+  return new TextDecoder("utf-8").decode(buffer);
+};
 
 const readOnDiscRb3Songs = () => {
   return convertDTAToCacheFormat(DTAParser.parseDTAToMap(rb3_disc_songs_dta));
+};
+
+const readFiles = async (dtaFiles: File[]) => {
+  const dtaMaps = await Promise.all(
+    dtaFiles.map(async (file) => {
+      const rawUTF8 = await readAsRawString(file);
+      return DTAParser.parseDTAToMap(rawUTF8);
+    }),
+  );
+  const combined = Object.assign(
+    {},
+    //DTAParser.parseDTAToMap(rb3_disc_songs_dta),
+    ...dtaMaps,
+  );
+  return convertDTAToCacheFormat(combined);
+};
+
+const convertOptionalBoolean = (numberValue?: number) => {
+  return numberValue == null ? undefined : numberValue === 1;
 };
 
 const convertDTAToCacheFormat = (
@@ -20,8 +45,9 @@ const convertDTAToCacheFormat = (
 ): SongRowCache[] => {
   const cacheSongs = [];
   Object.keys(dtaMap).forEach((technicalName) => {
-    const { props /*meta*/ } = dtaMap[technicalName];
+    const { props, meta } = dtaMap[technicalName];
     const dtaSong = props as unknown as DtaSong;
+    const dtaMeta = meta as unknown as DtaMeta;
     const songRowCache: Partial<SongRowCache> = {
       songID: dtaSong.song_id,
       gameVersion: dtaSong.version,
@@ -100,6 +126,36 @@ const convertDTAToCacheFormat = (
       // On disc songs do not all have year recorded so copy it from year released.
       songRowCache.yearRecorded = songRowCache.yearReleased;
     }
+
+    /* DTA only details not available in cache files */
+    songRowCache.bandFailCue = dtaSong.band_fail_cue;
+    songRowCache.guidePitchVolume = dtaSong.guide_pitch_volume;
+
+    /* Only available for customs */
+    songRowCache.author = dtaSong.author;
+    songRowCache.encoding = dtaSong.encoding;
+    songRowCache.subgenre = SongGenre.parseGenre(dtaSong.sub_genre);
+
+    if (dtaMeta) {
+      songRowCache.magmaVersion = dtaMeta.createdUsingMagma;
+      songRowCache.languages = dtaMeta.languages;
+      songRowCache.doubleBass = convertOptionalBoolean(dtaMeta.bass2x);
+      songRowCache.catEMH = convertOptionalBoolean(dtaMeta.caTemh);
+      songRowCache.convert = convertOptionalBoolean(dtaMeta.convert);
+      songRowCache.diyStems = convertOptionalBoolean(dtaMeta.diyStems);
+      songRowCache.expertOnly = convertOptionalBoolean(dtaMeta.expertOnly);
+      songRowCache.karaoke = convertOptionalBoolean(dtaMeta.karaoke);
+      songRowCache.multitrack = convertOptionalBoolean(dtaMeta.multitrack);
+      songRowCache.partialMultitrack = convertOptionalBoolean(
+        dtaMeta.partialMultitrack,
+      );
+      songRowCache.rhythmBass = convertOptionalBoolean(dtaMeta.rhythmBass);
+      songRowCache.rhythmKeys = convertOptionalBoolean(dtaMeta.rhythmKeys);
+      songRowCache.unpitchedVocals = convertOptionalBoolean(
+        dtaMeta.unpitchedVocals,
+      );
+    }
+
     cacheSongs.push(songRowCache);
   });
   return cacheSongs;
@@ -107,6 +163,7 @@ const convertDTAToCacheFormat = (
 
 const DTAToCacheFormatConverter = {
   readOnDiscRb3Songs,
+  readFiles,
 };
 
 export default DTAToCacheFormatConverter;

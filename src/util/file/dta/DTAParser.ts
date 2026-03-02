@@ -268,6 +268,12 @@ function parseMetaValue(raw: string): DTAValue {
   return trimmed;
 }
 
+/* Property names shouldn't start with a number 
+    so we rever the 2xbass to bass2x
+*/
+const reverseDoubleBassKey = (key: string) => {
+  return key.toLowerCase() === "2xbass" ? "bass2x" : key;
+};
 /**
  * Parse collected comment strings into a meta record.
  * Supports delimiters: =, :, " by ", " authored by "
@@ -286,7 +292,7 @@ function parseComments(
     // Try splitting by "=" first (most common)
     const eqIdx = line.indexOf("=");
     if (eqIdx !== -1) {
-      const key = toCamelCase(line.slice(0, eqIdx));
+      const key = toCamelCase(reverseDoubleBassKey(line.slice(0, eqIdx)));
       const val = parseMetaValue(line.slice(eqIdx + 1));
       if (key) {
         meta[key] = val;
@@ -299,7 +305,7 @@ function parseComments(
     // gives key="Song authored" → "songAuthored", value="X")
     const byIdx = line.lastIndexOf(" by ");
     if (byIdx !== -1) {
-      const key = toCamelCase(line.slice(0, byIdx));
+      const key = toCamelCase(reverseDoubleBassKey(line.slice(0, byIdx)));
       const val = parseMetaValue(line.slice(byIdx + 4));
       if (key) {
         meta[key] = val;
@@ -311,7 +317,7 @@ function parseComments(
     // Try splitting by ":" (e.g. "Created using Magma: Rok On Edition v4.0.3")
     const colonIdx = line.indexOf(":");
     if (colonIdx !== -1) {
-      const key = toCamelCase(line.slice(0, colonIdx));
+      const key = toCamelCase(reverseDoubleBassKey(line.slice(0, colonIdx)));
       const val = parseMetaValue(line.slice(colonIdx + 1));
       if (key) {
         meta[key] = val;
