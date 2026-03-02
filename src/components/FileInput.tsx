@@ -130,8 +130,8 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
       <div className="rbscv-file-section__info">
         <h2 className="rbscv-file-section__title">Load Files</h2>
         <p className="rbscv-file-section__desc">
-          Drop or select your save file (.dat) and cache file to view and
-          compare song data.
+          Drop or select your save file and/or cache file to view and compare
+          song data.
         </p>
       </div>
       <div className="rbscv-file-section__inputs">
@@ -159,7 +159,7 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
                 </span>
               ) : (
                 <span className="rbscv-drop-zone__text">
-                  Drop .dat file here or click to browse
+                  Drop save file here or click to browse
                 </span>
               )}
               <input

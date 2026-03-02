@@ -19,6 +19,8 @@ import Rating from "./data/Rating";
 import TonicNote from "./data/TonicNote";
 import Tonality from "./data/Tonality";
 import CacheFileUtil from "./CacheFileUtil";
+import { STFSPackage } from "../stfs/STFSPackage";
+import STFSResder from "../stfs/STFSReader";
 
 const calculateOffsetToSongData = (
   bytes: Uint8Array,
@@ -27,18 +29,18 @@ const calculateOffsetToSongData = (
   ByteReader.advanceOffset(offsetState, 4); // Skip first 4 unknown bytes
 
   // Read number of cache packages (signed 32-bit little-endian)
-  const cachePackages = ByteReader.readSigned32Number(bytes, offsetState);
+  const cachePackages = ByteReader.readSigned32NumberLE(bytes, offsetState);
 
   // Skip through all package entries
   for (let i = 0; i < cachePackages; i++) {
     // Read length of package name
-    const nameLength = ByteReader.readSigned32Number(bytes, offsetState);
+    const nameLength = ByteReader.readSigned32NumberLE(bytes, offsetState);
 
     // Skip the package name bytes
     ByteReader.advanceOffset(offsetState, nameLength);
 
     // Read how many IDs this package has
-    const idCount = ByteReader.readSigned32Number(bytes, offsetState);
+    const idCount = ByteReader.readSigned32NumberLE(bytes, offsetState);
 
     // Skip IDs: each is 2 bytes + 2 bytes separator (0F 00) = 4 bytes per ID
     ByteReader.advanceOffset(offsetState, idCount * 4);
@@ -49,11 +51,11 @@ const advanceOffsetToSkipFromRepeatingByteAmountBased = (
   bytes: Uint8Array,
   offsetState: OffsetState,
 ): void => {
-  const itemCount = ByteReader.readSigned32Number(bytes, offsetState);
+  const itemCount = ByteReader.readSigned32NumberLE(bytes, offsetState);
   for (let i = 0; i < itemCount; i++) {
     ByteReader.advanceOffset(
       offsetState,
-      ByteReader.readSigned32Number(bytes, offsetState),
+      ByteReader.readSigned32NumberLE(bytes, offsetState),
     );
   }
 };
@@ -62,13 +64,13 @@ const advanceOffsetToSkipFromRepeatingByteArrayAmountBased = (
   bytes: Uint8Array,
   offsetState: OffsetState,
 ): void => {
-  const itemCount = ByteReader.readSigned32Number(bytes, offsetState);
+  const itemCount = ByteReader.readSigned32NumberLE(bytes, offsetState);
   for (let i = 0; i < itemCount; i++) {
     // Has 4 byte identifier before length we don't care about
     ByteReader.advanceOffset(offsetState, 4);
     ByteReader.advanceOffset(
       offsetState,
-      ByteReader.readSigned32Number(bytes, offsetState) * 4,
+      ByteReader.readSigned32NumberLE(bytes, offsetState) * 4,
     );
   }
 };
@@ -79,7 +81,7 @@ const advanceOffsetToSkipFromLengthBased = (
 ): number => {
   return ByteReader.advanceOffset(
     offsetState,
-    ByteReader.readSigned32Number(bytes, offsetState) * 4,
+    ByteReader.readSigned32NumberLE(bytes, offsetState) * 4,
   );
 };
 
@@ -88,9 +90,9 @@ const parseInstrumentDifficulties = (
   songMetadata: Partial<SongRowCache>,
   offsetState: OffsetState,
 ): void => {
-  const itemCount = ByteReader.readSigned32Number(bytes, offsetState);
+  const itemCount = ByteReader.readSigned32NumberLE(bytes, offsetState);
   for (let i = 0; i < itemCount; i++) {
-    const instrumentNameLength = ByteReader.readSigned32Number(
+    const instrumentNameLength = ByteReader.readSigned32NumberLE(
       bytes,
       offsetState,
     );
@@ -99,7 +101,7 @@ const parseInstrumentDifficulties = (
       offsetState,
       instrumentNameLength,
     );
-    const instrumentDifficulty = ByteReader.readUnsigned16NumberFromFloat(
+    const instrumentDifficulty = ByteReader.readUnsigned16NumberFromFloatLE(
       bytes,
       offsetState,
     );
@@ -108,6 +110,19 @@ const parseInstrumentDifficulties = (
       instrumentName as InstrumentName,
       instrumentDifficulty,
     );
+  }
+};
+
+const getExtractedSTFSFile = (bytes: Uint8Array) => {
+  try {
+    const pkg = new STFSPackage(bytes);
+    for (const file of pkg.files) {
+      if (file.name === "songcache" || file.name === "rbdxcache") {
+        return pkg.extractFile(file);
+      }
+    }
+  } catch (e) {
+    console.error("failed to parse STFS: ", e);
   }
 };
 
@@ -135,15 +150,26 @@ const readCacheFile = (
     reader.onload = () => {
       const result = reader.result as ArrayBuffer;
       const isWii = file.name.split(".").pop() === "vff";
+      let bytes;
       if (!CacheFileUtil.validateCacheFile(result, isWii)) {
-        return resolve({
-          songData: [],
-          error:
-            "File wasn't the expected format. STFS packages not yet supported.",
-          fileMetaData: CommonFileUtil.readFileMetaData(file),
-        });
+        const stfsBytes = STFSResder.getExtractedFile(new Uint8Array(result), [
+          "songcache",
+          "rbdxcache",
+        ]);
+        if (stfsBytes) {
+          bytes = stfsBytes;
+        } else {
+          // Was not valid cache file and wasn't a valid STFS file (or the extraction failed?).
+          return resolve({
+            songData: [],
+            error:
+              "File wasn't the expected format. Please input songcache or rbdxcache for Xbox or MSTORE.vff for Wii.",
+            fileMetaData: CommonFileUtil.readFileMetaData(file),
+          });
+        }
+      } else {
+        bytes = new Uint8Array(result);
       }
-      const bytes = new Uint8Array(result);
 
       const offsetState = { offset: 0 };
 
@@ -153,25 +179,31 @@ const readCacheFile = (
       }
 
       calculateOffsetToSongData(bytes, offsetState);
-      const songCount = ByteReader.readSigned32Number(bytes, offsetState);
+      const songCount = ByteReader.readSigned32NumberLE(bytes, offsetState);
 
       const songData = DTAToCacheFormatConverter.readOnDiscRb3Songs();
 
       for (let i = 0; i < songCount; i++) {
         const songMetaData: Partial<SongRowCache> = {};
 
-        songMetaData.songID = ByteReader.readSigned32Number(bytes, offsetState);
+        songMetaData.songID = ByteReader.readSigned32NumberLE(
+          bytes,
+          offsetState,
+        );
         // Unknown
         ByteReader.advanceOffset(offsetState, 8);
 
-        songMetaData.gameVersion = ByteReader.readUnsigned16Number(
+        songMetaData.gameVersion = ByteReader.readUnsigned16NumberLE(
           bytes,
           offsetState,
         );
         // Duplicate id and unknown 1 byte
         ByteReader.advanceOffset(offsetState, 5);
 
-        const sourceLength = ByteReader.readSigned32Number(bytes, offsetState);
+        const sourceLength = ByteReader.readSigned32NumberLE(
+          bytes,
+          offsetState,
+        );
         songMetaData.source = ByteReader.readUTF8StringFromBytes(
           bytes,
           offsetState,
@@ -179,14 +211,14 @@ const readCacheFile = (
         );
 
         songMetaData.previewStart = Helper.convertMilliSecondsToReadableTime(
-          ByteReader.readSigned32NumberFromFloat(bytes, offsetState),
+          ByteReader.readSigned32NumberFromFloatLE(bytes, offsetState),
         );
 
         songMetaData.previewEnd = Helper.convertMilliSecondsToReadableTime(
-          ByteReader.readSigned32NumberFromFloat(bytes, offsetState),
+          ByteReader.readSigned32NumberFromFloatLE(bytes, offsetState),
         );
 
-        const shortNameLength = ByteReader.readSigned32Number(
+        const shortNameLength = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );
@@ -200,7 +232,7 @@ const readCacheFile = (
         // Shortname duplicate
         ByteReader.advanceOffset(offsetState, 4 + shortNameLength);
 
-        const filePathLength = ByteReader.readSigned32Number(
+        const filePathLength = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );
@@ -212,7 +244,7 @@ const readCacheFile = (
         // Unknown
         ByteReader.advanceOffset(offsetState, 4);
 
-        songMetaData.vocalParts = ByteReader.readSigned32Number(
+        songMetaData.vocalParts = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );
@@ -241,7 +273,7 @@ const readCacheFile = (
         // unknown
         ByteReader.advanceOffset(offsetState, 4);
 
-        const songNameLength = ByteReader.readSigned32Number(
+        const songNameLength = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );
@@ -251,7 +283,10 @@ const readCacheFile = (
           songNameLength,
         );
 
-        const artistLength = ByteReader.readSigned32Number(bytes, offsetState);
+        const artistLength = ByteReader.readSigned32NumberLE(
+          bytes,
+          offsetState,
+        );
         songMetaData.artist = ByteReader.readUTF8StringFromBytes(
           bytes,
           offsetState,
@@ -259,7 +294,7 @@ const readCacheFile = (
         );
 
         // Album
-        const albumLength = ByteReader.readSigned32Number(bytes, offsetState);
+        const albumLength = ByteReader.readSigned32NumberLE(bytes, offsetState);
         if (albumLength === 0) {
           // skip empty padding values if no album data
           ByteReader.advanceOffset(offsetState, 4);
@@ -269,7 +304,7 @@ const readCacheFile = (
             offsetState,
             albumLength,
           );
-          songMetaData.trackNumber = ByteReader.readSigned32Number(
+          songMetaData.trackNumber = ByteReader.readSigned32NumberLE(
             bytes,
             offsetState,
           );
@@ -278,7 +313,7 @@ const readCacheFile = (
         ByteReader.advanceOffset(offsetState, 3);
 
         songMetaData.yearRecorded =
-          1900 + ByteReader.readSigned32Number(bytes, offsetState);
+          1900 + ByteReader.readSigned32NumberLE(bytes, offsetState);
 
         // Skip unknown
         ByteReader.advanceOffset(offsetState, 2);
@@ -286,7 +321,7 @@ const readCacheFile = (
         songMetaData.yearReleased =
           1900 + ByteReader.readUnsigned8Number(bytes, offsetState);
 
-        const genreLength = ByteReader.readSigned32Number(bytes, offsetState);
+        const genreLength = ByteReader.readSigned32NumberLE(bytes, offsetState);
         songMetaData.genre = SongGenre.parseGenre(
           ByteReader.readUTF8StringFromBytes(bytes, offsetState, genreLength),
         );
@@ -295,7 +330,7 @@ const readCacheFile = (
 
         parseInstrumentDifficulties(bytes, songMetaData, offsetState);
 
-        const ratingValue = ByteReader.readSigned32Number(bytes, offsetState);
+        const ratingValue = ByteReader.readSigned32NumberLE(bytes, offsetState);
         songMetaData.rating = Rating.convertRating(
           ratingValue < 5 && ratingValue > 0 ? ratingValue : 4,
         );
@@ -303,7 +338,7 @@ const readCacheFile = (
         // Skip unknown
         ByteReader.advanceOffset(offsetState, 2);
 
-        songMetaData.scrollSpeed = ByteReader.readUnsigned16NumberFromFloat(
+        songMetaData.scrollSpeed = ByteReader.readUnsigned16NumberFromFloatLE(
           bytes,
           offsetState,
         );
@@ -311,7 +346,7 @@ const readCacheFile = (
         // Skip unknown
         ByteReader.advanceOffset(offsetState, 4);
 
-        const vocalPercussionLength = ByteReader.readSigned32Number(
+        const vocalPercussionLength = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );
@@ -321,7 +356,7 @@ const readCacheFile = (
           vocalPercussionLength,
         );
 
-        const drumBankLength = ByteReader.readSigned32Number(
+        const drumBankLength = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );
@@ -332,25 +367,25 @@ const readCacheFile = (
         );
 
         songMetaData.tonicNote = TonicNote.parseTonicNote(
-          ByteReader.readSigned32Number(bytes, offsetState),
+          ByteReader.readSigned32NumberLE(bytes, offsetState),
         );
 
         // Skip unknown
         ByteReader.advanceOffset(offsetState, 4);
 
         songMetaData.songTonality = Tonality.parseTonality(
-          ByteReader.readSigned32Number(bytes, offsetState),
+          ByteReader.readSigned32NumberLE(bytes, offsetState),
         );
 
         songMetaData.songLength = Helper.convertMilliSecondsToReadableTime(
-          ByteReader.readSigned32Number(bytes, offsetState),
+          ByteReader.readSigned32NumberLE(bytes, offsetState),
         );
 
         // TODO 3 different values detected. 1, 256, 257.
         // The 1 and 257 are clear false and true values but what does 256 mean?
         // For example RB1 DLC A7X - Afterlife is 256, couple of customs as well that seem to be original versions
         songMetaData.isMaster =
-          ByteReader.readUnsigned16Number(bytes, offsetState) === 1
+          ByteReader.readUnsigned16NumberLE(bytes, offsetState) === 1
             ? false
             : true;
 
@@ -358,7 +393,7 @@ const readCacheFile = (
         // TODO Xbox second byte here is possibly animation speed 32 default 64 fast?
         ByteReader.advanceOffset(offsetState, isWii ? 6 : 5);
 
-        const vocalGenderLength = ByteReader.readSigned32Number(
+        const vocalGenderLength = ByteReader.readSigned32NumberLE(
           bytes,
           offsetState,
         );

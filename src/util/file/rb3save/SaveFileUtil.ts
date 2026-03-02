@@ -1,22 +1,21 @@
 import type { ConsoleType } from "@/types/ConsoleType";
+import STFSResder from "../stfs/STFSReader";
 
 /* Console is determined by save file length */
-const getConsoleType = (data: Uint8Array): ConsoleType => {
-  if (data.length === 0xc00000) {
+const getConsoleType = (bytes: Uint8Array): ConsoleType => {
+  if (bytes.length === 0xc00000) {
     return "Wii";
-  } else if (data.length === 0x43a929) {
+  } else if (bytes.length === 0x43a929) {
     return "Xbox";
-  } else if (data.length === 0x43a99d) {
+  } else if (bytes.length === 0x43a99d) {
     return "PS3";
   } else {
-    // TODO xbox CON file check here?
     return "Unknown";
   }
 };
 
 /* Wii save file has a smaller song limit but can hold multiple profiles */
-const getStartOffset = (data: Uint8Array, wiiProfileIndex: number = 0) => {
-  const consoleType = getConsoleType(data);
+const getStartOffset = (consoleType: string, wiiProfileIndex: number) => {
   if (consoleType === "Wii") {
     // TODO wiiProfileIndex change needs to be build somehow
     switch (wiiProfileIndex) {
@@ -40,9 +39,26 @@ const getStartOffset = (data: Uint8Array, wiiProfileIndex: number = 0) => {
   }
 };
 
+const getFileDetails = (bytes: Uint8Array, wiiProfileIndex: number = 0) => {
+  let consoleType = getConsoleType(bytes);
+  let extractedBytes = undefined;
+  if (consoleType === "Unknown") {
+    extractedBytes = STFSResder.getExtractedFile(bytes, ["save.dat"]);
+    if (extractedBytes) {
+      // Just for safety the extracted bytes should still be the exact size
+      consoleType = getConsoleType(extractedBytes);
+    }
+  }
+
+  return {
+    consoleType,
+    extractedBytes,
+    offset: getStartOffset(consoleType, wiiProfileIndex),
+  };
+};
+
 const SaveFileUtil = {
-  getConsoleType,
-  getStartOffset,
+  getFileDetails,
 };
 
 export default SaveFileUtil;

@@ -6,10 +6,10 @@ import SaveFileCryptUtil from "./SaveFileCryptUtil";
 
 const parseSong = (bytes: Uint8Array): SongRowSave => {
   return {
-    songID: CommonFileUtil.unsigned32Number(bytes, 0),
+    songID: CommonFileUtil.unsigned32NumberLE(bytes, 0),
     lighterRating: bytes[6],
-    playCount: CommonFileUtil.signed32Number(bytes, 11),
-    drumsTopScore: CommonFileUtil.signed32Number(bytes, 63),
+    playCount: CommonFileUtil.signed32NumberLE(bytes, 11),
+    drumsTopScore: CommonFileUtil.signed32NumberLE(bytes, 63),
     drumsTopScoreDifficulty: bytes[67],
     drumsStarsEasy: bytes[68],
     drumsPercentEasy: bytes[69],
@@ -20,7 +20,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     drumsStarsExpert: bytes[92],
     drumsPercentExpert: bytes[93],
 
-    bassTopScore: CommonFileUtil.signed32Number(bytes, 100),
+    bassTopScore: CommonFileUtil.signed32NumberLE(bytes, 100),
     bassTopScoreDifficulty: bytes[104],
     bassStarsEasy: bytes[105],
     bassPercentEasy: bytes[106],
@@ -31,7 +31,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     bassStarsExpert: bytes[129],
     bassPercentExpert: bytes[130],
 
-    guitarTopScore: CommonFileUtil.signed32Number(bytes, 137),
+    guitarTopScore: CommonFileUtil.signed32NumberLE(bytes, 137),
     guitarTopScoreDifficulty: bytes[141],
     guitarStarsEasy: bytes[142],
     guitarPercentEasy: bytes[143],
@@ -42,7 +42,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     guitarStarsExpert: bytes[166],
     guitarPercentExpert: bytes[167],
 
-    vocalsTopScore: CommonFileUtil.signed32Number(bytes, 174),
+    vocalsTopScore: CommonFileUtil.signed32NumberLE(bytes, 174),
     vocalsTopScoreDifficulty: bytes[178],
     vocalsStarsEasy: bytes[179],
     vocalsPercentEasy: bytes[180],
@@ -53,7 +53,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     vocalsStarsExpert: bytes[203],
     vocalsPercentExpert: bytes[204],
 
-    harmoniesTopScore: CommonFileUtil.signed32Number(bytes, 211),
+    harmoniesTopScore: CommonFileUtil.signed32NumberLE(bytes, 211),
     harmoniesTopScoreDifficulty: bytes[215],
     harmoniesStarsEasy: bytes[216],
     harmoniesPercentEasy: bytes[217],
@@ -64,7 +64,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     harmoniesStarsExpert: bytes[240],
     harmoniesPercentExpert: bytes[241],
 
-    keysTopScore: CommonFileUtil.signed32Number(bytes, 248),
+    keysTopScore: CommonFileUtil.signed32NumberLE(bytes, 248),
     keysTopScoreDifficulty: bytes[252],
     keysStarsEasy: bytes[253],
     keysPercentEasy: bytes[254],
@@ -75,7 +75,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     keysStarsExpert: bytes[277],
     keysPercentExpert: bytes[278],
 
-    proDrumsTopScore: CommonFileUtil.signed32Number(bytes, 285),
+    proDrumsTopScore: CommonFileUtil.signed32NumberLE(bytes, 285),
     proDrumsTopScoreDifficulty: bytes[289],
     proDrumsStarsEasy: bytes[290],
     proDrumsPercentEasy: bytes[291],
@@ -86,7 +86,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     proDrumsStarsExpert: bytes[314],
     proDrumsPercentExpert: bytes[315],
 
-    proGuitarTopScore: CommonFileUtil.signed32Number(bytes, 322),
+    proGuitarTopScore: CommonFileUtil.signed32NumberLE(bytes, 322),
     proGuitarTopScoreDifficulty: bytes[326],
     proGuitarStarsEasy: bytes[327],
     proGuitarPercentEasy: bytes[328],
@@ -97,7 +97,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     proGuitarStarsExpert: bytes[351],
     proGuitarPercentExpert: bytes[352],
 
-    proBassTopScore: CommonFileUtil.signed32Number(bytes, 359),
+    proBassTopScore: CommonFileUtil.signed32NumberLE(bytes, 359),
     proBassTopScoreDifficulty: bytes[363],
     proBassStarsEasy: bytes[364],
     proBassPercentEasy: bytes[365],
@@ -108,7 +108,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     proBassStarsExpert: bytes[388],
     proBassPercentExpert: bytes[389],
 
-    proKeysTopScore: CommonFileUtil.signed32Number(bytes, 396),
+    proKeysTopScore: CommonFileUtil.signed32NumberLE(bytes, 396),
     proKeysTopScoreDifficulty: bytes[400],
     proKeysStarsEasy: bytes[401],
     proKeysPercentEasy: bytes[402],
@@ -119,7 +119,7 @@ const parseSong = (bytes: Uint8Array): SongRowSave => {
     proKeysStarsExpert: bytes[425],
     proKeysPercentExpert: bytes[426],
 
-    bandTopScore: CommonFileUtil.signed32Number(bytes, 433),
+    bandTopScore: CommonFileUtil.signed32NumberLE(bytes, 433),
     bandTopScoreDifficulty: bytes[437],
     bandStarsEasy: bytes[438],
     bandPercentEasy: bytes[439],
@@ -153,13 +153,15 @@ const readSaveFile = (file: File | null): Promise<ReadResult<SongRowSave>> => {
         const fileMetaData = CommonFileUtil.readFileMetaData(file);
         const songData: SongRowSave[] = [];
         const result = reader.result as ArrayBuffer;
-        const data = new Uint8Array(result);
+        const originalBytes = new Uint8Array(result);
 
         let error = "";
-        const offset = SaveFileUtil.getStartOffset(data, 0);
+        const { consoleType, extractedBytes, offset } =
+          SaveFileUtil.getFileDetails(originalBytes, 0);
+        const data = extractedBytes ? extractedBytes : originalBytes;
         if (offset === 0) {
           error =
-            "File wasn't the expected format. STFS packages not yet supported. Please input save.dat (Xbox / PS3) or band3.dat (Wii).";
+            "File wasn't the expected format. Please input save.dat (Xbox / PS3), band3.dat (Wii) or STFS packaged band3 for Xbox.";
         } else if (data[offset - 1] != 0x00) {
           error =
             "File seems correct, but initial offset wasn't right. Report this to dev.";
@@ -173,8 +175,6 @@ const readSaveFile = (file: File | null): Promise<ReadResult<SongRowSave>> => {
           return;
         }
 
-        const consoleType = SaveFileUtil.getConsoleType(data);
-
         let decryptedSongData;
         let songCountAsInteger;
         if (consoleType === "Wii") {
@@ -185,7 +185,7 @@ const readSaveFile = (file: File | null): Promise<ReadResult<SongRowSave>> => {
           const seedAndSongCount = data.slice(offset, offset + 8);
           const decryptedSongCount =
             SaveFileCryptUtil.streamDecrypt(seedAndSongCount);
-          songCountAsInteger = CommonFileUtil.signed32Number(
+          songCountAsInteger = CommonFileUtil.signed32NumberLE(
             decryptedSongCount,
             0,
           );

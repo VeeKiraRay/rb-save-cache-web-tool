@@ -20,7 +20,7 @@ const validateCacheFile = (buffer: ArrayBuffer, isWii: boolean): boolean => {
     ByteReader.advanceOffset(offsetState, 8);
 
     // Read 4-byte string length for
-    const stringLength = ByteReader.readSigned32Number(bytes, offsetState);
+    const stringLength = ByteReader.readSigned32NumberLE(bytes, offsetState);
 
     // Basic sanity checks string should be shortname like daylatedollarshort for Xbox or sZAE/001 style for Wii
     if (stringLength <= 0 || stringLength > 100) return false;
