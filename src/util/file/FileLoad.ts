@@ -28,12 +28,13 @@ const handleFileLoad = async (
   file1: File | null,
   file2: File | null,
   folder: FolderData | null,
+  onProgress?: (current: number, total: number) => void,
 ): Promise<LoadResult | LoadError> => {
   try {
     const [result1, result2, folderResult] = (await Promise.all([
       SaveFileParser.readSaveFile(file1),
       CacheFileParser.readCacheFile(file2),
-      SongParser.readSongs(folder),
+      SongParser.readSongs(folder, onProgress),
     ])) as [
       ReadResult<SongRowSave> | null,
       ReadResult<SongRowCache> | null,

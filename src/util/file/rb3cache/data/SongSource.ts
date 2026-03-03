@@ -10,6 +10,12 @@ const parseSource = ({
   artist?: string;
 }) => {
   if (!source) return "";
+
+  if (!source?.toLowerCase) {
+    // TODO some old songs.dta have an array instead of string
+    return "";
+  }
+
   switch (source.toLowerCase()) {
     case "rb1":
       return shortName.toLowerCase().includes("ugc") &&

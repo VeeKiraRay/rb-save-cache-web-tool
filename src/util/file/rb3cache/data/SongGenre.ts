@@ -1,11 +1,7 @@
 const SUBGENRE_PREFIX = "subgenre_";
 
 const parseSubGenre = (subgenre: string) => {
-  const subgenreValue = subgenre.startsWith(SUBGENRE_PREFIX)
-    ? subgenre.substring(SUBGENRE_PREFIX.length, subgenre.length)
-    : subgenre;
-
-  switch (subgenreValue) {
+  switch (subgenre) {
     case "alternative": {
       return "Alternative";
     }
@@ -408,9 +404,12 @@ const parseGenre = (genre?: string) => {
   if (!genre) {
     return undefined;
   }
-  let parsedGenre = parseMainGenre(genre);
-  if (parsedGenre === genre) {
-    parsedGenre = parseSubGenre(genre);
+  const genreValue = genre.startsWith(SUBGENRE_PREFIX)
+    ? genre.substring(SUBGENRE_PREFIX.length, genre.length)
+    : genre;
+  let parsedGenre = parseMainGenre(genreValue);
+  if (parsedGenre === genreValue) {
+    parsedGenre = parseSubGenre(genreValue);
   }
   return parsedGenre;
 };
