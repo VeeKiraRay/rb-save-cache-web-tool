@@ -1,4 +1,4 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 interface DropZoneProps {
   placeholder: string;
@@ -18,7 +18,16 @@ const DropZone: React.FC<DropZoneProps> = ({
   onUnsupportedDrop,
 }) => {
   const [isDragging, setIsDragging] = useState(false);
+  const [isEnumerating, setIsEnumerating] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
+
+  useEffect(() => {
+    const input = inputRef.current;
+    if (!input || !isFolder) return;
+    const handleCancel = () => setIsEnumerating(false);
+    input.addEventListener("cancel", handleCancel);
+    return () => input.removeEventListener("cancel", handleCancel);
+  }, [isFolder]);
 
   const preventDefaults = (e: React.DragEvent) => {
     e.preventDefault();
@@ -46,9 +55,24 @@ const DropZone: React.FC<DropZoneProps> = ({
     [isFolder, onFileSelect, onUnsupportedDrop],
   );
 
+  const handleClick = () => {
+    if (isFolder) {
+      // Show the overlay as soon as the dialog closes and the browser starts
+      // enumerating the directory (which can take several seconds).
+      const onFocus = () => {
+        window.removeEventListener("focus", onFocus);
+        console.log("jei");
+        setIsEnumerating(true);
+      };
+      window.addEventListener("focus", onFocus);
+    }
+    inputRef.current?.click();
+  };
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (isFolder) {
       const files = e.target.files;
+      setIsEnumerating(false);
       if (files && files.length > 0) {
         onFolderSelect?.(files[0].webkitRelativePath.split("/")[0], files);
       }
@@ -59,33 +83,49 @@ const DropZone: React.FC<DropZoneProps> = ({
   };
 
   return (
-    <div
-      className={`rbscv-drop-zone${isDragging ? " rbscv-drop-zone--dragging" : ""}${displayName ? " rbscv-drop-zone--has-file" : ""}`}
-      onClick={() => inputRef.current?.click()}
-      onDragOver={(e) => {
-        preventDefaults(e);
-        setIsDragging(true);
-      }}
-      onDragEnter={(e) => {
-        preventDefaults(e);
-        setIsDragging(true);
-      }}
-      onDragLeave={() => setIsDragging(false)}
-      onDrop={handleDrop}
-    >
-      {displayName ? (
-        <span className="rbscv-drop-zone__filename">{displayName}</span>
-      ) : (
-        <span className="rbscv-drop-zone__text">{placeholder}</span>
+    <>
+      {isEnumerating && (
+        <div className="rbscv-loading-overlay">
+          <div className="rbscv-loading-content">
+            <div className="rbscv-loading-spinner" />
+            <p className="rbscv-loading-text">Reading folder…</p>
+            <button
+              className="rbscv-loading-cancel"
+              onClick={() => setIsEnumerating(false)}
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
       )}
-      <input
-        ref={inputRef}
-        type="file"
-        {...(isFolder ? { webkitdirectory: "" } : {})}
-        style={{ display: "none" }}
-        onChange={handleInputChange}
-      />
-    </div>
+      <div
+        className={`rbscv-drop-zone${isDragging ? " rbscv-drop-zone--dragging" : ""}${displayName ? " rbscv-drop-zone--has-file" : ""}`}
+        onClick={handleClick}
+        onDragOver={(e) => {
+          preventDefaults(e);
+          setIsDragging(true);
+        }}
+        onDragEnter={(e) => {
+          preventDefaults(e);
+          setIsDragging(true);
+        }}
+        onDragLeave={() => setIsDragging(false)}
+        onDrop={handleDrop}
+      >
+        {displayName ? (
+          <span className="rbscv-drop-zone__filename">{displayName}</span>
+        ) : (
+          <span className="rbscv-drop-zone__text">{placeholder}</span>
+        )}
+        <input
+          ref={inputRef}
+          type="file"
+          {...(isFolder ? { webkitdirectory: "" } : {})}
+          style={{ display: "none" }}
+          onChange={handleInputChange}
+        />
+      </div>
+    </>
   );
 };
 
