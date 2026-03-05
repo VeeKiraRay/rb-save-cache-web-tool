@@ -30,7 +30,7 @@ const readFiles = async (dtaFiles: File[]) => {
   );
   const combined = Object.assign(
     {},
-    //DTAParser.parseDTAToMap(rb3_disc_songs_dta),
+    DTAParser.parseDTAToMap(rb3_disc_songs_dta),
     ...dtaMaps,
   );
   return convertDTAToCacheFormat(combined);
