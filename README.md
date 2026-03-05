@@ -4,7 +4,7 @@
 
 ## Purpose
 
-Allows the user to read their save and cache files from Rock Band 3 and display them in a table format.
+Allows the user to read their save files, cache files, or songs.dta from Rock Band 3 and display the contents in a table format.
 
 ## Requirements
 
@@ -16,7 +16,8 @@ Allows the user to read their save and cache files from Rock Band 3 and display 
 - Xbox 360
   - Extracted save.dat
   - Extracted songcache or rbdxcache
-  - Extraction can be done by dragging and dropping the file into Nautilus. The extraction functionality (STFS) for this app is still a WIP
+  - STFS packaged band3, songcache or rbdxcache file
+  - A folder\* of .rb3con files, which will be scanned for their songs.dta files
 
 - Wii
   - band3.dat
@@ -24,10 +25,13 @@ Allows the user to read their save and cache files from Rock Band 3 and display 
 
 - PS3
   - SAVE.DAT
+  - A folder\* of songs containing their songs.dta files
 
 The files I have tested are from specific versions of the game. There might be subtle differences with older versions that could make them unreadable. Contact me if you run into an issue and I can try to add support for them.
 
-PS3 does not produce a cache file, but I'm planning to add support for a folder selector. It would go through a folder and all its subfolders to read the songs.dta file and get similar data into the table.
+The songs.dta files, while containing more information than cache files, vary in both content and formatting depending on the era and the tools used to build them. For example, official Rock Band 1 songs do not include ID numbers, which makes matching them with save data difficult. To mitigate the missing IDs, there is an [ID lookup table](./src/assets/static/OfficialSongIds.ts) for the official songs that should contain all of them (or at least 99%).. The format differences can cause issues with mapping, resulting in missing data or values that appear incorrect even when the underlying information exists.
+
+\*Folder scanning also searches all subfolders to find appropriate files.
 
 ## Usage
 
@@ -40,6 +44,8 @@ Data available in [save file](./src/types/file/SongRowSave.ts).
 Data available in [cache file](./src/types/file/SongRowCache.ts).
 
 When a cache file is provided, the Rock Band 3 on-disc songs are also read from a separate .dta file, since they are not included in the cache files.
+
+Alternatively, instead of a cache file, you can select a folder. The tool will scan the folder and all subfolders for songs.dta files. If none are found, it will switch to searching for STFS‑packaged songs and extract songs.dta files from inside them. If any valid files are found using either method, the Rock Band 3 on‑disc song metadata will be added to the results.
 
 Columns can be
 
