@@ -28,13 +28,14 @@ const handleFileLoad = async (
   file1: File | null,
   file2: File | null,
   folder: FolderData | null,
-  onProgress?: (current: number, total: number) => void,
+  onProgress?: (current: number, total: number, label: string) => void,
+  signal?: AbortSignal,
 ): Promise<LoadResult | LoadError> => {
   try {
     const [result1, result2, folderResult] = (await Promise.all([
       SaveFileParser.readSaveFile(file1),
       CacheFileParser.readCacheFile(file2),
-      SongParser.readSongs(folder, onProgress),
+      SongParser.readSongs(folder, onProgress, signal),
     ])) as [
       ReadResult<SongRowSave> | null,
       ReadResult<SongRowCache> | null,
@@ -95,6 +96,9 @@ const handleFileLoad = async (
       meta,
     };
   } catch (err: unknown) {
+    if (err instanceof DOMException && err.name === "AbortError") {
+      throw err;
+    }
     return {
       errorMessage: err instanceof Error ? err.message : String(err),
     };

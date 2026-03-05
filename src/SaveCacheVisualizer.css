@@ -973,6 +973,22 @@ body {
   margin: 0;
 }
 
+.rbscv-loading-cancel {
+  background: transparent;
+  border: 1px solid var(--rbscv-border);
+  border-radius: 4px;
+  color: var(--rbscv-text-dim);
+  cursor: pointer;
+  font-family: var(--rbscv-font-mono);
+  font-size: var(--rbscv-font-size-small);
+  padding: 0.4rem 1rem;
+}
+
+.rbscv-loading-cancel:hover {
+  border-color: var(--rbscv-accent);
+  color: var(--rbscv-accent);
+}
+
 /* ── ──────────────────────────────────────────────────────────────────── */
 
 .rbscv-percent-bar__label {

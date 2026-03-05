@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useRef, useState } from "react";
 import handleFileLoad from "../util/file/FileLoad";
 import type LoadResult from "@/types/file/LoadResult";
 import type LoadError from "@/types/file/LoadError";
@@ -23,7 +23,9 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
   const [progress, setProgress] = useState<{
     current: number;
     total: number;
+    label: string;
   } | null>(null);
+  const abortControllerRef = useRef<AbortController | null>(null);
 
   const handleSaveFileSelect = (file: File) => {
     setFileError("");
@@ -50,21 +52,35 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
       setFileError("");
       setIsLoading(true);
       setProgress(null);
-      const fileResponse = await handleFileLoad(
-        file1,
-        file2,
-        folder,
-        (current, total) => setProgress({ current, total }),
-      );
-      setIsLoading(false);
-      setProgress(null);
-      if ("errorMessage" in fileResponse) {
-        setFileError(fileResponse.errorMessage);
+      const controller = new AbortController();
+      abortControllerRef.current = controller;
+      try {
+        const fileResponse = await handleFileLoad(
+          file1,
+          file2,
+          folder,
+          (current, total, label) => setProgress({ current, total, label }),
+          controller.signal,
+        );
+        setIsLoading(false);
+        setProgress(null);
+        if ("errorMessage" in fileResponse) {
+          setFileError(fileResponse.errorMessage);
+        }
+        handleFileLoadingResponse(fileResponse);
+      } catch {
+        setIsLoading(false);
+        setProgress(null);
+      } finally {
+        abortControllerRef.current = null;
       }
-      handleFileLoadingResponse(fileResponse);
     },
     [handleFileLoadingResponse],
   );
+
+  const handleAbort = () => {
+    abortControllerRef.current?.abort();
+  };
 
   const handleLoad = () => {
     const cacheFileToUse = cacheMode === "file" ? cacheFile : null;
@@ -87,11 +103,14 @@ const FileInput: React.FC<FileInputProps> = ({ handleFileLoadingResponse }) => {
             <div className="rbscv-loading-spinner" />
             {progress ? (
               <p className="rbscv-loading-text">
-                Scanning files… {progress.current} / {progress.total}
+                {progress.label} {progress.current} / {progress.total}
               </p>
             ) : (
               <p className="rbscv-loading-text">Loading…</p>
             )}
+            <button className="rbscv-loading-cancel" onClick={handleAbort}>
+              Cancel
+            </button>
           </div>
         </div>
       )}
