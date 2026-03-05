@@ -10,6 +10,7 @@ import SongSource from "./data/SongSource";
 import type { DtaValue } from "@/types/file/dta/DtaValue";
 import TonicNote from "./data/TonicNote";
 import Tonality from "./data/Tonality";
+import { OFFICIAL_SONG_IDS } from "@/assets/static/OfficialSongIds";
 import type { DtaMeta } from "@/types/file/dta/DtaSong";
 
 const readAsRawString = async (file: File): Promise<string> => {
@@ -76,6 +77,14 @@ const convertDTAToCacheFormat = (
       isMaster: dtaSong.master === 1,
       vocalGender: Helper.capitalizeFirstLetter(dtaSong.vocal_gender ?? ""),
     };
+
+    if (!songRowCache.songID) {
+      /* Older official songs are missing ID in the songs.dta. 
+          Lookup table has been generated with a cache file. */
+      /* ID is necessary to match with save file data */
+      songRowCache.songID = OFFICIAL_SONG_IDS[technicalName];
+    }
+
     songRowCache.source = SongSource.parseSource(songRowCache);
     InstrumentDifficulty.convertInstrumentDifficulty(
       songRowCache,
