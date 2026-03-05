@@ -27,8 +27,8 @@ export default interface SongRowCache {
   scrollSpeed: number;
   vocalPercussionBank: string;
   drumBank: string;
-  tonicNote: string;
-  songTonality: string;
+  tonicNote?: string;
+  songTonality?: string;
   songLength: string;
   isMaster: boolean;
   vocalGender: string;
