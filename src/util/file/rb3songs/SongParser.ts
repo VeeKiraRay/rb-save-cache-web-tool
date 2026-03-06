@@ -42,7 +42,7 @@ const getDTAFromConFiles = async (
   onProgress?.(0, files.length, label);
   for (let i = 0; i < files.length; i++) {
     signal?.throwIfAborted();
-    const extracted = await STFSReader.getExtractedFiles(files[i], [
+    const extracted = await STFSReader.getExtractedFilesSliced(files[i], [
       songMetadataFile,
     ]);
     filesFromCons.push(
