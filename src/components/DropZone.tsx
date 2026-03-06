@@ -61,7 +61,6 @@ const DropZone: React.FC<DropZoneProps> = ({
       // enumerating the directory (which can take several seconds).
       const onFocus = () => {
         window.removeEventListener("focus", onFocus);
-        console.log("jei");
         setIsEnumerating(true);
       };
       window.addEventListener("focus", onFocus);
