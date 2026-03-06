@@ -36,6 +36,18 @@ function getCommentText(s: string): string {
   return s.slice(COMMENT_PREFIX.length);
 }
 
+/**
+ * Replaces #ifdef CONDITION thenValue #else elseValue #endif blocks
+ * with just the #else clause value.
+ * Example: #ifdef RB3E 'gh2dxdlc' #else 'ugc_plus' #endif → 'ugc_plus'
+ */
+function sanitizeIfDef(input: string): string {
+  return input.replace(
+    /#ifdef\s+\S+\s+.*?#else\s+(.*?)\s*#endif/gs,
+    (_, elseClause) => elseClause.trim(),
+  );
+}
+
 // -- Step 1: Tokenizer ---------------------------------------
 
 function tokenize(input: string): string[] {
@@ -373,7 +385,7 @@ function sexprToEntry(expr: SFormat): DtaEntry | null {
  * console.log(entries[0].meta);           // undefined (no comments)
  */
 export function parseDTA(input: string): DtaEntry[] {
-  const tokens = tokenize(input);
+  const tokens = tokenize(sanitizeIfDef(input));
   const sexprs = parseSFormats(tokens);
   const entries: DtaEntry[] = [];
 
