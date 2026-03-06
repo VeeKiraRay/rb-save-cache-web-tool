@@ -141,7 +141,9 @@ const convertDTAToCacheFormat = (
     songRowCache.guidePitchVolume = dtaSong.guide_pitch_volume;
 
     /* Only available for customs */
-    songRowCache.author = dtaSong.author;
+    songRowCache.author = dtaSong.author
+      ? dtaSong.author
+      : dtaMeta.songAuthored;
     songRowCache.encoding = dtaSong.encoding;
     songRowCache.subgenre = SongGenre.parseGenre(dtaSong.sub_genre);
 
