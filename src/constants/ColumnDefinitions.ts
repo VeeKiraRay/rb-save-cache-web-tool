@@ -316,8 +316,8 @@ const technical: ColumnDefinition[] = [
     isFiltrable: true,
   },
   {
-    key: "magmaVersion",
-    label: "Magma version",
+    key: "tool",
+    label: "Tool",
     group: "Technical",
     size: INITIAL_SIZE.MEDIUM,
     isFiltrable: true,

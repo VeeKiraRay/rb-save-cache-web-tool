@@ -295,7 +295,6 @@ function parseComments(
   comments: string[],
 ): Record<string, DTAValue> | undefined {
   const meta: Record<string, DTAValue> = {};
-  let hasEntries = false;
 
   for (const line of comments) {
     // Skip the "DO NOT EDIT" header
@@ -308,7 +307,6 @@ function parseComments(
       const val = parseMetaValue(line.slice(eqIdx + 1));
       if (key) {
         meta[key] = val;
-        hasEntries = true;
       }
       continue;
     }
@@ -321,24 +319,28 @@ function parseComments(
       const val = parseMetaValue(line.slice(byIdx + 4));
       if (key) {
         meta[key] = val;
-        hasEntries = true;
       }
       continue;
     }
 
-    // Try splitting by ":" (e.g. "Created using Magma: Rok On Edition v4.0.3")
-    const colonIdx = line.indexOf(":");
-    if (colonIdx !== -1) {
-      const key = toCamelCase(reverseDoubleBassKey(line.slice(0, colonIdx)));
-      const val = parseMetaValue(line.slice(colonIdx + 1));
-      if (key) {
-        meta[key] = val;
-        hasEntries = true;
-      }
+    // Try finding tool used to create.
+    let toolSearchStr = "Created using Magma:";
+    let toolIdx = line.indexOf(toolSearchStr);
+    if (toolIdx === -1) {
+      // Onyx tool doesn't use colon
+      toolSearchStr = "Created using";
+      toolIdx = line.indexOf(toolSearchStr);
+    }
+
+    if (toolIdx !== -1) {
+      const key = "tool";
+      let val = toolSearchStr.includes("Magma") ? "Magma " : "";
+      val += parseMetaValue(line.slice(toolSearchStr.length + 1));
+      meta[key] = val;
       continue;
     }
   }
-  return hasEntries ? meta : undefined;
+  return meta;
 }
 
 // -- Entry assembly ------------------------------------------
@@ -362,9 +364,8 @@ function sexprToEntry(expr: SFormat): DtaEntry | null {
   }
 
   const props = convertBlock(dataItems);
-  const meta = parseComments(comments);
   const entry: DtaEntry = { id, props };
-  if (meta) entry.meta = meta;
+  entry.meta = parseComments(comments);
   return entry;
 }
 

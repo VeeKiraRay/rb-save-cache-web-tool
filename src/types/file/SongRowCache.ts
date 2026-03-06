@@ -38,7 +38,7 @@ export default interface SongRowCache {
   encoding?: string;
   guidePitchVolume?: string;
   subgenre?: string;
-  magmaVersion?: string;
+  tool?: string;
   languages?: string;
   doubleBass?: boolean;
   catEMH?: boolean;

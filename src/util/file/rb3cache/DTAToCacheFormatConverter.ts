@@ -146,7 +146,7 @@ const convertDTAToCacheFormat = (
     songRowCache.subgenre = SongGenre.parseGenre(dtaSong.sub_genre);
 
     if (dtaMeta) {
-      songRowCache.magmaVersion = dtaMeta.createdUsingMagma;
+      songRowCache.tool = dtaMeta.tool;
       songRowCache.languages = dtaMeta.languages;
       songRowCache.doubleBass = convertOptionalBoolean(dtaMeta.bass2x);
       songRowCache.catEMH = convertOptionalBoolean(dtaMeta.caTemh);

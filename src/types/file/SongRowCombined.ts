@@ -173,6 +173,6 @@ export const DEFAULT_SONG_ROW_COMBINED: SongRowCombined = {
   encoding: STRING_VALUE_NOT_SET,
   guidePitchVolume: STRING_VALUE_NOT_SET,
   subgenre: STRING_VALUE_NOT_SET,
-  magmaVersion: STRING_VALUE_NOT_SET,
+  tool: STRING_VALUE_NOT_SET,
   languages: STRING_VALUE_NOT_SET,
 };

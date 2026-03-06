@@ -46,7 +46,7 @@ export default interface DtaSong {
 }
 
 export interface DtaMeta {
-  createdUsingMagma?: string;
+  tool?: string;
   languages?: string;
   songAuthored?: string;
   bass2x?: number;
