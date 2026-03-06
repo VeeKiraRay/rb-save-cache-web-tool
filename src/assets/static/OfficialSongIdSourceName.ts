@@ -26,6 +26,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010522,
     source: "DLC",
   },
+  "20thcenturyboy": {
+    fullName: "T. Rex - 20th Century Boy",
+    id: 1011,
+    source: "RB3",
+  },
   "21guns": {
     fullName: "Green Day - 21 Guns",
     id: 1005699,
@@ -40,6 +45,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Green Day - 21st Century Breakdown",
     id: 3014,
     source: "GD:RB",
+  },
+  "25or6to4": {
+    fullName: "Chicago - 25 or 6 to 4",
+    id: 1013,
+    source: "RB3",
+  },
+  "29fingers": {
+    fullName: "The Konks - 29 Fingers",
+    id: 46,
+    source: "RB1",
   },
   "2minutestomidnight": {
     fullName: "Iron Maiden - 2 Minutes to Midnight",
@@ -65,6 +80,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Miley Cyrus - 7 Things",
     id: 1006080,
     source: "DLC",
+  },
+  IllDrinktoThat: {
+    fullName: "Set Your Sails - I'll Drink to That (ft. ShadyVox)",
+    id: 131072,
+    source: "RBN2",
   },
   UGC_5000034: {
     fullName: "Full-Source - It's Not You, It's Everyone",
@@ -7006,6 +7026,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005823,
     source: "DLC",
   },
+  accidentallyinlove: {
+    fullName: "Counting Crows - Accidentally in Love",
+    id: 751,
+    source: "Lego",
+  },
   accordingtoyou: {
     fullName: "Orianthi - According to You",
     id: 1006037,
@@ -7076,6 +7101,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006056,
     source: "DLC",
   },
+  aintmessinround: {
+    fullName: "Gary Clark Jr. - Ain't Messin 'Round",
+    id: 5045,
+    source: "RB4",
+  },
   aintnotelling: {
     fullName: "The Jimi Hendrix Experience - Ain't No Telling",
     id: 1005990,
@@ -7096,10 +7126,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 252,
     source: "RB2",
   },
+  albert: {
+    fullName: "Eddie Japan - Albert",
+    id: 1557880,
+    source: "RB4",
+  },
   alexchilton: {
     fullName: "The Replacements - Alex Chilton",
     id: 253,
     source: "RB2",
+  },
+  aliensexist: {
+    fullName: "Blink-182 - Aliens Exist",
+    id: 752,
+    source: "Lego",
   },
   alittlerespect: {
     fullName: "Erasure - A Little Respect",
@@ -7160,6 +7200,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Locksley - All Over Again",
     id: 1005200,
     source: "DLC",
+  },
+  alloveryou: {
+    fullName: "Live - All Over You",
+    id: 5057,
+    source: "RB4",
   },
   allrightnow: {
     fullName: "Free - All Right Now",
@@ -7307,6 +7352,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006157,
     source: "DLC",
   },
+  antibodies: {
+    fullName: "Poni Hoax - Antibodies",
+    id: 1080,
+    source: "RB3",
+  },
   antsmarching: {
     fullName: "Dave Matthews Band - Ants Marching",
     id: 1010621,
@@ -7322,15 +7372,30 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005236,
     source: "DLC",
   },
+  apassagetobangkok: {
+    fullName: "Rush - A Passage to Bangkok",
+    id: 5025,
+    source: "RB4",
+  },
   appetiterbn: {
     fullName: "The Gracious Few - Appetite",
     id: 1010224,
     source: "DLC",
   },
+  apunk: {
+    fullName: "Vampire Weekend - A-Punk",
+    id: 753,
+    source: "Lego",
+  },
   aqualung: {
     fullName: "Jethro Tull - Aqualung",
     id: 258,
     source: "RB2",
+  },
+  arabella: {
+    fullName: "Arctic Monkeys - Arabella",
+    id: 5038,
+    source: "RB4",
   },
   arewethewaitingstjimmy: {
     fullName: "Green Day - Are We the Waiting/St. Jimmy",
@@ -7346,6 +7411,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Jimi Hendrix Experience - Are You Experienced?",
     id: 1006189,
     source: "DLC",
+  },
+  areyougonnabemygirl: {
+    fullName: "Jet - Are You Gonna Be My Girl",
+    id: 1,
+    source: "RB1",
   },
   areyougonnagomyway: {
     fullName: "Lenny Kravitz - Are You Gonna Go My Way",
@@ -7366,6 +7436,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Tom Petty and the Heartbreakers - A Thing About You (Live)",
     id: 1005820,
     source: "DLC",
+  },
+  atnightindreams: {
+    fullName: "White Denim - At Night in Dreams",
+    id: 5046,
+    source: "RB4",
   },
   attack: {
     fullName: "30 Seconds to Mars - Attack",
@@ -7453,6 +7528,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005252,
     source: "DLC",
   },
+  ballroomblitz: {
+    fullName: "Sweet - Ballroom Blitz (Cover)",
+    id: 2,
+    source: "RB1",
+  },
   bandages: {
     fullName: "Hot Hot Heat - Bandages",
     id: 1005224,
@@ -7503,6 +7583,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005373,
     source: "DLC",
   },
+  beastandtheharlot: {
+    fullName: "Avenged Sevenfold - Beast and the Harlot",
+    id: 1074,
+    source: "RB3",
+  },
   beatitondowntheline: {
     fullName: "The Grateful Dead - Beat It on Down the Line",
     id: 1005955,
@@ -7523,6 +7608,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005851,
     source: "DLC",
   },
+  beencaughtstealing: {
+    fullName: "Jane's Addiction - Been Caught Stealing",
+    id: 1037,
+    source: "RB3",
+  },
   beerformyhorses: {
     fullName: "Toby Keith - Beer for My Horses",
     id: 1005504,
@@ -7542,6 +7632,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Carrie Underwood - Before He Cheats",
     id: 1010563,
     source: "DLC",
+  },
+  beforeiforget: {
+    fullName: "Slipknot - Before I Forget",
+    id: 1100,
+    source: "RB3",
   },
   behindblueeyes: {
     fullName: "The Who - Behind Blue Eyes",
@@ -7608,6 +7703,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005565,
     source: "DLC",
   },
+  birthinreverse: {
+    fullName: "St. Vincent - Birth in Reverse",
+    id: 5062,
+    source: "RB4",
+  },
   black: {
     fullName: "Pearl Jam - Black",
     id: 1005483,
@@ -7622,6 +7722,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Steely Dan - Black Friday",
     id: 1005556,
     source: "DLC",
+  },
+  blackholesun: {
+    fullName: "Soundgarden - Black Hole Sun",
+    id: 3,
+    source: "RB1",
   },
   blackmagic: {
     fullName: "Slayer - Black Magic",
@@ -7658,10 +7763,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005071,
     source: "DLC",
   },
+  blitzkriegbop: {
+    fullName: "Ramones - Blitzkrieg Bop",
+    id: 4,
+    source: "RB1",
+  },
   bloodandthunder: {
     fullName: "Mastodon - Blood and Thunder",
     id: 1010256,
     source: "DLC",
+  },
+  blooddoll: {
+    fullName: "Anarchy Club - Blood Doll",
+    id: 47,
+    source: "RB1",
   },
   bloodonmyhands: {
     fullName: "The Used - Blood on My Hands",
@@ -7743,6 +7858,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005362,
     source: "DLC",
   },
+  bohemianrhapsody: {
+    fullName: "Queen - Bohemian Rhapsody",
+    id: 1003,
+    source: "RB3",
+  },
   boldaslove: {
     fullName: "The Jimi Hendrix Experience - Bold as Love",
     id: 1005987,
@@ -7782,6 +7902,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Thin Lizzy - The Boys Are Back in Town (Live)",
     id: 1005421,
     source: "DLC",
+  },
+  brainpower: {
+    fullName: "Freezepop - Brainpower",
+    id: 48,
+    source: "RB1",
   },
   brainstewjaded: {
     fullName: "Green Day - Brain Stew/Jaded",
@@ -7828,6 +7953,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005424,
     source: "DLC",
   },
+  breakonthrough: {
+    fullName: "The Doors - Break on Through (To the Other Side)",
+    id: 1101,
+    source: "RB3",
+  },
+  breakout: {
+    fullName: "Foo Fighters - Breakout",
+    id: 754,
+    source: "Lego",
+  },
   breed: {
     fullName: "Nirvana - Breed",
     id: 1005273,
@@ -7842,6 +7977,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Pearl Jam - Brother",
     id: 1005475,
     source: "DLC",
+  },
+  browneyedgirl: {
+    fullName: "Van Morrison - Brown Eyed Girl",
+    id: 5050,
+    source: "RB4",
   },
   buddyholly: {
     fullName: "Weezer - Buddy Holly",
@@ -7983,6 +8123,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010580,
     source: "DLC",
   },
+  cantletgo: {
+    fullName: "Death of the Cool - Can't Let Go",
+    id: 49,
+    source: "RB1",
+  },
   cantletgo_lucinda: {
     fullName: "Lucinda Williams - Can't Let Go",
     id: 1005436,
@@ -8033,6 +8178,31 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005512,
     source: "DLC",
   },
+  caughtinamosh: {
+    fullName: "Anthrax - Caught in a Mosh",
+    id: 1049,
+    source: "RB3",
+  },
+  cedarwoodroad: {
+    fullName: "U2 - Cedarwood Road",
+    id: 5067,
+    source: "RB4",
+  },
+  celebrityskin: {
+    fullName: "Hole - Celebrity Skin",
+    id: 5,
+    source: "RB1",
+  },
+  centerfold: {
+    fullName: "The J. Geils Band - Centerfold",
+    id: 1086,
+    source: "RB3",
+  },
+  centuries: {
+    fullName: "Fall Out Boy - Centuries",
+    id: 5030,
+    source: "RB4",
+  },
   centurycitylive: {
     fullName: "Tom Petty and the Heartbreakers - Century City (Live)",
     id: 1005876,
@@ -8047,6 +8217,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Alice in Chains - Check My Brain",
     id: 1005779,
     source: "DLC",
+  },
+  checkyesjuliet: {
+    fullName: "We the Kings - Check Yes Juliet",
+    id: 755,
+    source: "Lego",
   },
   cheeseburgerinparadise: {
     fullName: "Jimmy Buffett - Cheeseburger in Paradise",
@@ -8063,6 +8238,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006067,
     source: "DLC",
   },
+  cherubrock: {
+    fullName: "Smashing Pumpkins - Cherub Rock",
+    id: 6,
+    source: "RB1",
+  },
   chestfeverlive: {
     fullName: "The Band - Chest Fever (Live)",
     id: 1005764,
@@ -8077,6 +8257,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Grateful Dead - China Cat Sunflower",
     id: 1005064,
     source: "DLC",
+  },
+  chinagrove: {
+    fullName: "The Doobie Brothers - China Grove",
+    id: 1028,
+    source: "RB3",
   },
   chinesedemocracy: {
     fullName: "Guns N' Roses - Chinese Democracy",
@@ -8173,6 +8358,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010599,
     source: "DLC",
   },
+  coldasice: {
+    fullName: "Foreigner - Cold as Ice",
+    id: 1024,
+    source: "RB3",
+  },
+  coldclearlight: {
+    fullName: "Johnny Blazes and The Pretty Boys - Cold Clear Light",
+    id: 5063,
+    source: "RB4",
+  },
   coldrainandsnow: {
     fullName: "The Grateful Dead - Cold Rain and Snow",
     id: 1005417,
@@ -8187,6 +8382,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Mastodon - Colony of Birchmen",
     id: 264,
     source: "RB2",
+  },
+  combatbaby: {
+    fullName: "Metric - Combat Baby",
+    id: 1030,
+    source: "RB3",
   },
   comeasyouarelive: {
     fullName: "Nirvana - Come As You Are (Live from MTV Unplugged)",
@@ -8283,6 +8483,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005142,
     source: "DLC",
   },
+  crash: {
+    fullName: "The Primitives - Crash",
+    id: 756,
+    source: "Lego",
+  },
   crawl: {
     fullName: "Kings of Leon - Crawl",
     id: 1005703,
@@ -8313,6 +8518,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005659,
     source: "DLC",
   },
+  crazytrain: {
+    fullName: "Ozzy Osbourne - Crazy Train",
+    id: 1009,
+    source: "RB3",
+  },
   crazytuesday: {
     fullName: "thenewno2 - Crazy Tuesday",
     id: 1005316,
@@ -8322,6 +8532,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Harvey Danger - Cream and Bastards Rise",
     id: 1005251,
     source: "DLC",
+  },
+  creep: {
+    fullName: "Radiohead - Creep",
+    id: 7,
+    source: "RB1",
   },
   creepinupthebackstairs: {
     fullName: "The Fratellis - Creepin' Up the Backstairs",
@@ -8343,10 +8558,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005133,
     source: "DLC",
   },
+  crocodilerock: {
+    fullName: "Elton John - Crocodile Rock",
+    id: 757,
+    source: "Lego",
+  },
   crosseyedandpainless: {
     fullName: "Talking Heads - Crosseyed and Painless",
     id: 1005778,
     source: "DLC",
+  },
+  crosstowntraffic: {
+    fullName: "The Jimi Hendrix Experience - Crosstown Traffic",
+    id: 1018,
+    source: "RB3",
   },
   crushcrushcrush: {
     fullName: "Paramore - Crushcrushcrush",
@@ -8428,6 +8653,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005909,
     source: "DLC",
   },
+  daylatedollarshort: {
+    fullName: "The Acro-brats - Day Late, Dollar Short",
+    id: 50,
+    source: "RB1",
+  },
   daysgoby: {
     fullName: "Keith Urban - Days Go By",
     id: 1006122,
@@ -8448,10 +8678,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006198,
     source: "DLC",
   },
+  deadblack: {
+    fullName: "Soul Remnants - Dead Black (Heart of Ice)",
+    id: 5056,
+    source: "RB4",
+  },
+  deadendfriends: {
+    fullName: "Them Crooked Vultures - Dead End Friends",
+    id: 1034,
+    source: "RB3",
+  },
   deadleavesdirtyground: {
     fullName: "The White Stripes - Dead Leaves and the Dirty Ground",
     id: 1005836,
     source: "DLC",
+  },
+  deadonarrival: {
+    fullName: "Fall Out Boy - Dead on Arrival",
+    id: 9,
+    source: "RB1",
   },
   dearestimsosorry: {
     fullName: "Picture Me Broken - Dearest (I'm So Sorry)",
@@ -8492,6 +8737,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Underoath - Desperate Times, Desperate Measures",
     id: 1005314,
     source: "DLC",
+  },
+  detroitrockcity: {
+    fullName: "KISS - Detroit Rock City",
+    id: 10,
+    source: "RB1",
   },
   deuce: {
     fullName: "KISS - Deuce (Live)",
@@ -8537,6 +8787,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "No Doubt - Different People",
     id: 1006032,
     source: "DLC",
+  },
+  dig: {
+    fullName: "Incubus - Dig",
+    id: 758,
+    source: "Lego",
   },
   digginmedown: {
     fullName: "Ozzy Osbourne - Diggin' Me Down",
@@ -8608,6 +8863,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005335,
     source: "DLC",
   },
+  dontburyme: {
+    fullName: "Riverboat Gamblers - Don't Bury Me... I'm Still Not Dead",
+    id: 1106,
+    source: "RB3",
+  },
   dontchastop: {
     fullName: "The Cars - Don't Cha Stop",
     id: 1005117,
@@ -8617,6 +8877,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Grateful Dead - Don't Ease Me In",
     id: 1005415,
     source: "DLC",
+  },
+  dontfearthereaper: {
+    fullName: "Blue Öyster Cult - (Don't Fear) The Reaper",
+    id: 11,
+    source: "RB1",
   },
   dontfeellikethatrbn: {
     fullName: "Johnny Cooper - Don't Feel Like That Anymore",
@@ -8642,6 +8907,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "No Doubt - Don't Speak",
     id: 1005365,
     source: "DLC",
+  },
+  dontstandsoclosetome: {
+    fullName: "The Police - Don't Stand So Close to Me",
+    id: 1057,
+    source: "RB3",
   },
   dontstop: {
     fullName: "Fleetwood Mac - Don't Stop",
@@ -8758,6 +9028,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010264,
     source: "DLC",
   },
+  dreamgenie: {
+    fullName: "Lightning Bolt - Dream Genie",
+    id: 5068,
+    source: "RB4",
+  },
   dreamin: {
     fullName: "Weezer - Dreamin'",
     id: 1005152,
@@ -8767,6 +9042,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Lights Resolve - Dreaming of Love",
     id: 1005857,
     source: "DLC",
+  },
+  dreamingofyou: {
+    fullName: "The Coral - Dreaming of You",
+    id: 759,
+    source: "Lego",
   },
   dreamonlive: {
     fullName: "Aerosmith - Dream On (Live)",
@@ -8803,6 +9083,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005846,
     source: "DLC",
   },
+  duhast: {
+    fullName: "Rammstein - Du Hast",
+    id: 1082,
+    source: "RB3",
+  },
   dunebuggy: {
     fullName: "The Presidents of the United States of America - Dune Buggy",
     id: 1005301,
@@ -8828,6 +9113,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Testament - Electric Crown",
     id: 1005180,
     source: "DLC",
+  },
+  electricversion: {
+    fullName: "The New Pornographers - Electric Version",
+    id: 12,
+    source: "RB1",
   },
   elscorcho: {
     fullName: "Weezer - El Scorcho",
@@ -8884,6 +9174,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005400,
     source: "DLC",
   },
+  epic: {
+    fullName: "Faith No More - Epic",
+    id: 14,
+    source: "RB1",
+  },
   epro: {
     fullName: "Beck - E-Pro",
     id: 270,
@@ -8909,6 +9204,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 271,
     source: "RB2",
   },
+  everybodywantstorule: {
+    fullName: "Tears for Fears - Everybody Wants to Rule the World",
+    id: 1033,
+    source: "RB3",
+  },
   everybodywantsyou: {
     fullName: "Billy Squier - Everybody Wants You",
     id: 1010582,
@@ -8918,6 +9218,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Police - Every Breath You Take",
     id: 1010078,
     source: "DLC",
+  },
+  everylittlething: {
+    fullName: "The Police - Every Little Thing She Does Is Magic",
+    id: 760,
+    source: "Lego",
   },
   excusememr: {
     fullName: "No Doubt - Excuse Me Mr.",
@@ -8964,6 +9269,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005826,
     source: "DLC",
   },
+  falsealarm: {
+    fullName: "The Bronx - False Alarm",
+    id: 1105,
+    source: "RB3",
+  },
   fame: {
     fullName: "David Bowie - Fame",
     id: 1010105,
@@ -8993,6 +9303,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Iron Maiden - Fear of the Dark (Live)",
     id: 1005580,
     source: "DLC",
+  },
+  feastandthefamine: {
+    fullName: "Foo Fighters - The Feast and the Famine",
+    id: 5020,
+    source: "RB4",
   },
   featherpluckn: {
     fullName: "The Presidents of the United States of America - Feather Pluckn",
@@ -9054,6 +9369,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005090,
     source: "DLC",
   },
+  fever_bk: {
+    fullName: "The Black Keys - Fever",
+    id: 5006,
+    source: "RB4",
+  },
   figuredyouout: {
     fullName: "Nickelback - Figured You Out",
     id: 1005611,
@@ -9063,6 +9383,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Juanes - Fíjate Bien",
     id: 1006144,
     source: "DLC",
+  },
+  fire: {
+    fullName: "The Jimi Hendrix Experience - Fire",
+    id: 797,
+    source: "Lego",
   },
   fireandice: {
     fullName: "Pat Benatar - Fire and Ice",
@@ -9119,6 +9444,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005426,
     source: "DLC",
   },
+  flirtinwithdisaster: {
+    fullName: "Molly Hatchet - Flirtin' with Disaster",
+    id: 15,
+    source: "RB1",
+  },
   floaton: {
     fullName: "Modest Mouse - Float On",
     id: 274,
@@ -9139,6 +9469,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010277,
     source: "DLC",
   },
+  flylikeaneagle: {
+    fullName: "Steve Miller Band - Fly Like an Eagle",
+    id: 1067,
+    source: "RB3",
+  },
   flyonthewall: {
     fullName: "Miley Cyrus - Fly on the Wall",
     id: 1006081,
@@ -9149,10 +9484,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 3026,
     source: "GD:RB",
   },
+  followyoudown: {
+    fullName: "Gin Blossoms - Follow You Down",
+    id: 5035,
+    source: "RB4",
+  },
   folsomprisonblues: {
     fullName: "Johnny Cash - Folsom Prison Blues",
     id: 1010132,
     source: "DLC",
+  },
+  foolin: {
+    fullName: "Def Leppard - Foolin'",
+    id: 1090,
+    source: "RB3",
   },
   footloose: {
     fullName: "Kenny Loggins - Footloose",
@@ -9163,6 +9508,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Pearl Jam - Force of Nature",
     id: 1005671,
     source: "DLC",
+  },
+  foreplaylongtime: {
+    fullName: "Boston - Foreplay/Long Time",
+    id: 16,
+    source: "RB1",
   },
   forever: {
     fullName: "In This Moment - Forever",
@@ -9214,15 +9564,35 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005381,
     source: "DLC",
   },
+  freebird: {
+    fullName: "Lynyrd Skynyrd - Free Bird",
+    id: 1079,
+    source: "RB3",
+  },
   freedomtrain: {
     fullName: "Lenny Kravitz - Freedom Train",
     id: 1005402,
     source: "DLC",
   },
+  freefallin: {
+    fullName: "Tom Petty - Free Fallin'",
+    id: 761,
+    source: "Lego",
+  },
+  freefallingwarning: {
+    fullName: "The Warning - Free Falling",
+    id: 5064,
+    source: "RB4",
+  },
   freezeframe: {
     fullName: "The J. Geils Band - Freeze-Frame",
     id: 1010053,
     source: "DLC",
+  },
+  fridayiminlove: {
+    fullName: "The Cure - Friday I'm in Love",
+    id: 5031,
+    source: "RB4",
   },
   fromoutofnowhere2: {
     fullName: "Faith No More - From Out of Nowhere",
@@ -9284,6 +9654,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 328,
     source: "RB2",
   },
+  getfree: {
+    fullName: "The Vines - Get Free",
+    id: 1060,
+    source: "RB3",
+  },
   getiton: {
     fullName: "The Chevelles - Get It On",
     id: 1005313,
@@ -9304,10 +9679,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005469,
     source: "DLC",
   },
+  getupstandup: {
+    fullName: "Bob Marley and the Wailers - Get Up, Stand Up",
+    id: 1075,
+    source: "RB3",
+  },
   getyourrockon: {
     fullName: "The Janitors - Get Your Rock On",
     id: 1005197,
     source: "DLC",
+  },
+  ghostbusters: {
+    fullName: "Ray Parker Jr. - Ghostbusters",
+    id: 762,
+    source: "Lego",
+  },
+  gimmeshelter: {
+    fullName: "The Rolling Stones - Gimme Shelter",
+    id: 17,
+    source: "RB1",
   },
   gimmesomemoney: {
     fullName: "Spinal Tap - Gimme Some Money",
@@ -9328,6 +9718,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Talking Heads - Girlfriend Is Better",
     id: 1005776,
     source: "DLC",
+  },
+  girlsandboys: {
+    fullName: "Good Charlotte - Girls & Boys",
+    id: 763,
+    source: "Lego",
   },
   girlsnotgrey: {
     fullName: "AFI - Girl's Not Grey",
@@ -9454,6 +9849,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005121,
     source: "DLC",
   },
+  goodvibrationslive: {
+    fullName: "The Beach Boys - Good Vibrations (Live)",
+    id: 1095,
+    source: "RB3",
+  },
   gotasdeaguadulce: {
     fullName: "Juanes - Gotas de Agua Dulce",
     id: 1006143,
@@ -9479,10 +9879,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005136,
     source: "DLC",
   },
+  gowiththeflow: {
+    fullName: "Queens of the Stone Age - Go with the Flow",
+    id: 18,
+    source: "RB1",
+  },
   goyourownway: {
     fullName: "Fleetwood Mac - Go Your Own Way",
     id: 278,
     source: "RB2",
+  },
+  grace: {
+    fullName: "Supergrass - Grace",
+    id: 764,
+    source: "Lego",
+  },
+  greengrass: {
+    fullName: "The Outlaws - Green Grass and High Tides (Cover)",
+    id: 19,
+    source: "RB1",
   },
   greenriver: {
     fullName: "Creedence Clearwater Revival - Green River",
@@ -9524,6 +9939,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005535,
     source: "DLC",
   },
+  hailtotheking: {
+    fullName: "Avenged Sevenfold - Hail to the King",
+    id: 5019,
+    source: "RB4",
+  },
   hairofthedog: {
     fullName: "Nazareth - Hair of the Dog",
     id: 1005723,
@@ -9533,6 +9953,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Iron Maiden - Hallowed Be Thy Name (Live)",
     id: 1005579,
     source: "DLC",
+  },
+  hallsofvalhalla: {
+    fullName: "Judas Priest - Halls of Valhalla",
+    id: 5009,
+    source: "RB4",
   },
   hammerhead: {
     fullName: "The Offspring - Hammerhead",
@@ -9664,6 +10089,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005927,
     source: "DLC",
   },
+  heartofglass: {
+    fullName: "Blondie - Heart of Glass",
+    id: 1045,
+    source: "RB3",
+  },
   heartofthesunrise: {
     fullName: "Yes - Heart of the Sunrise",
     id: 1010314,
@@ -9764,6 +10194,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005146,
     source: "DLC",
   },
+  hereigoagain: {
+    fullName: "Whitesnake - Here I Go Again",
+    id: 1077,
+    source: "RB3",
+  },
+  hereitgoesagain: {
+    fullName: "OK Go - Here It Goes Again",
+    id: 20,
+    source: "RB1",
+  },
   herewearejuggernaut: {
     fullName: "Coheed and Cambria - Here We Are Juggernaut",
     id: 1006020,
@@ -9814,6 +10254,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005682,
     source: "DLC",
   },
+  heymanniceshot: {
+    fullName: "Filter - Hey Man Nice Shot",
+    id: 1043,
+    source: "RB3",
+  },
   heyyou: {
     fullName: "No Doubt - Hey You",
     id: 1006030,
@@ -9833,6 +10278,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Jimi Hendrix Experience - Highway Chile",
     id: 1006190,
     source: "DLC",
+  },
+  highwaystar: {
+    fullName: "Deep Purple - Highway Star",
+    id: 21,
+    source: "RB1",
   },
   highwaytohell_live: {
     fullName: "AC/DC - Highway to Hell (Live)",
@@ -9949,6 +10399,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006202,
     source: "DLC",
   },
+  humanoid: {
+    fullName: "Tokio Hotel - Humanoid",
+    id: 1089,
+    source: "RB3",
+  },
   hungrylikethewolf: {
     fullName: "Duran Duran - Hungry Like the Wolf",
     id: 280,
@@ -9989,10 +10444,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005845,
     source: "DLC",
   },
+  iamelectric: {
+    fullName: "Heaven's Basement - I Am Electric",
+    id: 5053,
+    source: "RB4",
+  },
+  ibetmylife: {
+    fullName: "Imagine Dragons - I Bet My Life",
+    id: 5003,
+    source: "RB4",
+  },
   ibleed: {
     fullName: "Pixies - I Bleed",
     id: 1005147,
     source: "DLC",
+  },
+  icanseeformiles: {
+    fullName: "The Who - I Can See for Miles",
+    id: 1073,
+    source: "RB3",
   },
   icanttakemyeyes: {
     fullName: "SpongeBob SquarePants - I Can't Keep My Eyes Off of You",
@@ -10064,6 +10534,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005993,
     source: "DLC",
   },
+  ifeelgoodalt: {
+    fullName: "James Brown - I Got You (I Feel Good)",
+    id: 1066,
+    source: "RB3",
+  },
   ifiaintgotyou: {
     fullName: "The Len Price 3 - If I Ain't Got You",
     id: 1005312,
@@ -10088,6 +10563,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Chicago - If You Leave Me Now",
     id: 1010617,
     source: "DLC",
+  },
+  igetby: {
+    fullName: "Honest Bob and the Factory-to-Dealer Incentives - I Get By",
+    id: 51,
+    source: "RB1",
   },
   igotmine: {
     fullName: "The Black Keys - I Got Mine",
@@ -10129,6 +10609,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005761,
     source: "DLC",
   },
+  iloverocknroll: {
+    fullName: "Joan Jett & The Blackhearts - I Love Rock N' Roll",
+    id: 1083,
+    source: "RB3",
+  },
   ilovethisbar: {
     fullName: "Toby Keith - I Love This Bar",
     id: 1005502,
@@ -10138,6 +10623,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Thrice - Image of the Invisible",
     id: 1005688,
     source: "DLC",
+  },
+  imagine: {
+    fullName: "John Lennon - Imagine",
+    id: 1102,
+    source: "RB3",
   },
   imalright: {
     fullName: "Kenny Loggins - I'm Alright",
@@ -10169,6 +10659,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005322,
     source: "DLC",
   },
+  imissthemisery: {
+    fullName: "Halestorm - I Miss the Misery",
+    id: 5047,
+    source: "RB4",
+  },
   imissyou: {
     fullName: "Blink-182 - I Miss You",
     id: 1005869,
@@ -10194,6 +10689,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005890,
     source: "DLC",
   },
+  imsosick: {
+    fullName: "Flyleaf - I'm So Sick",
+    id: 52,
+    source: "RB1",
+  },
   imstillstanding: {
     fullName: "Elton John - I'm Still Standing",
     id: 1010554,
@@ -10208,6 +10708,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "X - I Must Not Think Bad Thoughts",
     id: 1005972,
     source: "DLC",
+  },
+  inabigcountry: {
+    fullName: "Big Country - In a Big Country",
+    id: 1038,
+    source: "RB3",
+  },
+  inbloom: {
+    fullName: "Nirvana - In Bloom",
+    id: 22,
+    source: "RB1",
   },
   indestructible: {
     fullName: "Disturbed - Indestructible",
@@ -10228,6 +10738,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Grateful Dead - I Need a Miracle",
     id: 1005062,
     source: "DLC",
+  },
+  ineedtoknow: {
+    fullName: "Tom Petty and the Heartbreakers - I Need to Know",
+    id: 1088,
+    source: "RB3",
   },
   inmyhead: {
     fullName: "Queens of the Stone Age - In My Head",
@@ -10258,6 +10773,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Linkin Park - In the End",
     id: 1010176,
     source: "DLC",
+  },
+  inthemeantime: {
+    fullName: "Spacehog - In the Meantime",
+    id: 1014,
+    source: "RB3",
+  },
+  intoodeep: {
+    fullName: "Sum 41 - In Too Deep",
+    id: 766,
+    source: "Lego",
   },
   intouch: {
     fullName: "The Cars - I'm in Touch with Your World",
@@ -10328,6 +10853,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Sugarland - It Happens",
     id: 1006145,
     source: "DLC",
+  },
+  ithinkimparanoid: {
+    fullName: "Garbage - I Think I'm Paranoid",
+    id: 23,
+    source: "RB1",
   },
   ithurts: {
     fullName: "Angels & Airwaves - It Hurts",
@@ -10409,6 +10939,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010162,
     source: "DLC",
   },
+  iwannabesedated: {
+    fullName: "Ramones - I Wanna Be Sedated",
+    id: 1036,
+    source: "RB3",
+  },
   iwannabeyourdog: {
     fullName: "The Stooges - I Wanna Be Your Dog",
     id: 1006113,
@@ -10444,6 +10979,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010579,
     source: "DLC",
   },
+  iwantyouback: {
+    fullName: "The Jackson 5 - I Want You Back",
+    id: 765,
+    source: "Lego",
+  },
   iwantyouto: {
     fullName: "Weezer - (If You're Wondering If I Want You To) I Want You To",
     id: 1005864,
@@ -10453,6 +10993,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Social Distortion - I Was Wrong",
     id: 281,
     source: "RB2",
+  },
+  iwillfollow: {
+    fullName: "U2 - I Will Follow",
+    id: 5066,
+    source: "RB4",
   },
   iwillnotbow: {
     fullName: "Breaking Benjamin - I Will Not Bow",
@@ -10518,6 +11063,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Caesars - Jerk It Out",
     id: 1010129,
     source: "DLC",
+  },
+  jerrywasaracecar: {
+    fullName: "Primus - Jerry Was a Race Car Driver",
+    id: 1078,
+    source: "RB3",
   },
   jessica: {
     fullName: "The Allman Brothers Band - Jessica",
@@ -10609,6 +11159,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005867,
     source: "DLC",
   },
+  justlikeheaven: {
+    fullName: "The Cure - Just Like Heaven",
+    id: 1050,
+    source: "RB3",
+  },
   justthewayyouare: {
     fullName: "Bruno Mars - Just the Way You Are",
     id: 1010286,
@@ -10633,6 +11188,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Queen - Keep Yourself Alive",
     id: 1010117,
     source: "DLC",
+  },
+  kickitout: {
+    fullName: "Heart - Kick It Out",
+    id: 5032,
+    source: "RB4",
   },
   kickstartmyheart: {
     fullName: "Mötley Crüe - Kickstart My Heart",
@@ -10674,6 +11234,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005279,
     source: "DLC",
   },
+  killingloneliness: {
+    fullName: "H.I.M. - Killing Loneliness",
+    id: 1063,
+    source: "RB3",
+  },
+  kinggeorge: {
+    fullName: "Dover - King George",
+    id: 1104,
+    source: "RB3",
+  },
   kingofrock: {
     fullName: "Run-DMC - King of Rock",
     id: 1010266,
@@ -10694,6 +11264,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005623,
     source: "DLC",
   },
+  knockemdown: {
+    fullName: "Duck & Cover - Knock Em Down",
+    id: 5042,
+    source: "RB4",
+  },
   knowyourenemy: {
     fullName: "Green Day - Know Your Enemy",
     id: 1005676,
@@ -10713,6 +11288,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "3 Doors Down - Kryptonite",
     id: 1005615,
     source: "DLC",
+  },
+  kungfufighting: {
+    fullName: "Carl Douglas - Kung Fu Fighting",
+    id: 768,
+    source: "Lego",
   },
   lacamisanegra: {
     fullName: "Juanes - La Camisa Negra",
@@ -10739,10 +11319,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010247,
     source: "DLC",
   },
+  lasso: {
+    fullName: "Phoenix - Lasso",
+    id: 1071,
+    source: "RB3",
+  },
   last: {
     fullName: "Nine Inch Nails - Last",
     id: 1005175,
     source: "DLC",
+  },
+  lastdance: {
+    fullName: "The Raveonettes - Last Dance",
+    id: 1070,
+    source: "RB3",
   },
   lastnightonearth: {
     fullName: "Green Day - Last Night on Earth",
@@ -10784,10 +11374,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010082,
     source: "DLC",
   },
+  lazaretto: {
+    fullName: "Jack White - Lazaretto",
+    id: 5017,
+    source: "RB4",
+  },
   lazyeye: {
     fullName: "Silversun Pickups - Lazy Eye",
     id: 283,
     source: "RB2",
+  },
+  learntofly: {
+    fullName: "Foo Fighters - Learn to Fly",
+    id: 24,
+    source: "RB1",
   },
   leavinghere: {
     fullName: "The Who - Leaving Here",
@@ -10834,6 +11434,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010146,
     source: "DLC",
   },
+  letsdance: {
+    fullName: "David Bowie - Let's Dance",
+    id: 769,
+    source: "Lego",
+  },
   letterbomb: {
     fullName: "Green Day - Letterbomb",
     id: 3006,
@@ -10859,6 +11464,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005570,
     source: "DLC",
   },
+  lifeisahighway: {
+    fullName: "Rascal Flatts - Life Is a Highway",
+    id: 770,
+    source: "Lego",
+  },
   lifeisbeautiful: {
     fullName: "Sixx:A.M. - Life is Beautiful",
     id: 1005185,
@@ -10878,6 +11488,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Live - Lightning Crashes",
     id: 1010293,
     source: "DLC",
+  },
+  lightthefuse: {
+    fullName: "Slydigs - Light the Fuse",
+    id: 5043,
+    source: "RB4",
+  },
+  lightupthenight: {
+    fullName: "The Protomen - Light Up the Night",
+    id: 5061,
+    source: "RB4",
   },
   likeafool: {
     fullName: "Shaimus - Like a Fool",
@@ -10919,6 +11539,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 3012,
     source: "GD:RB",
   },
+  littlemisscantbewrong: {
+    fullName: "Spin Doctors - Little Miss Can't Be Wrong",
+    id: 5002,
+    source: "RB4",
+  },
   littlemisslover: {
     fullName: "The Jimi Hendrix Experience - Little Miss Lover",
     id: 1005989,
@@ -10933,6 +11558,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Queens of the Stone Age - Little Sister",
     id: 1005008,
     source: "DLC",
+  },
+  littlewhitechurch: {
+    fullName: "Little Big Town - Little White Church",
+    id: 5013,
+    source: "RB4",
   },
   littlewing: {
     fullName: "The Jimi Hendrix Experience - Little Wing",
@@ -10965,6 +11595,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006047,
     source: "DLC",
   },
+  livinginamerica: {
+    fullName: "The Sounds - Living in America",
+    id: 1052,
+    source: "RB3",
+  },
   livingthroughme: {
     fullName: "Pantera - Living Through Me (Hell's Wrath)",
     id: 1005967,
@@ -10984,6 +11619,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Bon Jovi - Livin' on a Prayer (RB3 version)",
     id: 1010067,
     source: "DLC",
+  },
+  llama: {
+    fullName: "Phish - Llama",
+    id: 1094,
+    source: "RB3",
   },
   lobotomy: {
     fullName: "Green Day - Before the Lobotomy",
@@ -11135,6 +11775,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010033,
     source: "DLC",
   },
+  lowrider: {
+    fullName: "WAR - Low Rider",
+    id: 1085,
+    source: "RB3",
+  },
   luciddreams: {
     fullName: "Franz Ferdinand - Lucid Dreams",
     id: 1005547,
@@ -11180,10 +11825,26 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005310,
     source: "DLC",
   },
+  mainoffender: {
+    fullName: "The Hives - Main Offender",
+    id: 25,
+    source: "RB1",
+  },
+  mainstreamkid: {
+    fullName: "Brandi Carlile - Mainstream Kid",
+    id: 5051,
+    source: "RB4",
+  },
   makedamnsure: {
     fullName: "Taking Back Sunday - MakeDamnSure",
     id: 1005557,
     source: "DLC",
+  },
+  makemesmile: {
+    fullName:
+      "Steve Harley & Cockney Rebel - Make Me Smile (Come Up and See Me)",
+    id: 771,
+    source: "Lego",
   },
   makemesmile2: {
     fullName: "Chicago - Make Me Smile",
@@ -11229,6 +11890,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Raconteurs - Many Shades of Black",
     id: 1005640,
     source: "DLC",
+  },
+  maps: {
+    fullName: "Yeah Yeah Yeahs - Maps",
+    id: 26,
+    source: "RB1",
   },
   marchofthepigs: {
     fullName: "Nine Inch Nails - March of the Pigs",
@@ -11305,6 +11971,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005855,
     source: "DLC",
   },
+  meenamora: {
+    fullName: "Juanes - Me Enamora",
+    id: 1084,
+    source: "RB3",
+  },
   megasus: {
     fullName: "Megasus - Megasus",
     id: 1005399,
@@ -11345,6 +12016,12 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006148,
     source: "DLC",
   },
+  metropolis: {
+    fullName:
+      'Dream Theater - Metropolis - Part 1 "The Miracle and the Sleeper"',
+    id: 5016,
+    source: "RB4",
+  },
   miami2017: {
     fullName: "Billy Joel - Miami 2017 (See the Lights Go Out on Broadway)",
     id: 1010252,
@@ -11355,10 +12032,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005344,
     source: "DLC",
   },
+  midlifecrisis: {
+    fullName: "Faith No More - MidLife Crisis",
+    id: 1015,
+    source: "RB3",
+  },
   midnightrider: {
     fullName: "The Allman Brothers Band - Midnight Rider",
     id: 1005538,
     source: "DLC",
+  },
+  milwaukee: {
+    fullName: "The Both - Milwaukee",
+    id: 5058,
+    source: "RB4",
   },
   minerva: {
     fullName: "Deftones - Minerva",
@@ -11370,10 +12057,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 3034,
     source: "GD:RB",
   },
+  miracleman: {
+    fullName: "Ozzy Osbourne - Miracle Man",
+    id: 5059,
+    source: "RB4",
+  },
   misery: {
     fullName: "Maroon 5 - Misery",
     id: 1010298,
     source: "DLC",
+  },
+  miserybusiness2: {
+    fullName: "Paramore - Misery Business",
+    id: 1064,
+    source: "RB3",
   },
   missindependent: {
     fullName: "Kelly Clarkson - Miss Independent",
@@ -11384,6 +12081,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "AFI - Miss Murder",
     id: 1005622,
     source: "DLC",
+  },
+  missqueen: {
+    fullName: "Mountain - Mississippi Queen (Cover)",
+    id: 27,
+    source: "RB1",
   },
   modernlove: {
     fullName: "David Bowie - Modern Love",
@@ -11414,6 +12116,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Tokio Hotel - Monsoon",
     id: 1005110,
     source: "DLC",
+  },
+  monster: {
+    fullName: "The Automatic - Monster",
+    id: 772,
+    source: "Lego",
   },
   monstergaga: {
     fullName: "Lady Gaga - Monster",
@@ -11555,6 +12262,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005166,
     source: "DLC",
   },
+  mygodisthesun: {
+    fullName: "Queens of the Stone Age - My God is the Sun",
+    id: 380990074,
+    source: "RB4",
+  },
   myhero: {
     fullName: "Foo Fighters - My Hero",
     id: 1005329,
@@ -11615,6 +12327,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010382,
     source: "DLC",
   },
+  naive: {
+    fullName: "The Kooks - Naïve",
+    id: 773,
+    source: "Lego",
+  },
   nakedeye: {
     fullName: "Luscious Jackson - Naked Eye",
     id: 1005543,
@@ -11639,6 +12356,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Lady Antebellum - Need You Now",
     id: 1010173,
     source: "DLC",
+  },
+  needyoutonight: {
+    fullName: "INXS - Need You Tonight",
+    id: 1016,
+    source: "RB3",
   },
   neveragain: {
     fullName: "Nickelback - Never Again",
@@ -11695,6 +12417,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005324,
     source: "DLC",
   },
+  nexttoyou: {
+    fullName: "The Police - Next to You",
+    id: 28,
+    source: "RB1",
+  },
   nib: {
     fullName: "Black Sabbath - N.I.B.",
     id: 1005021,
@@ -11714,6 +12441,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Bang Camaro - Night Lies",
     id: 329,
     source: "RB2",
+  },
+  nightmare: {
+    fullName: "Crooked X - Nightmare",
+    id: 53,
+    source: "RB1",
   },
   nightmare2: {
     fullName: "Avenged Sevenfold - Nightmare",
@@ -11794,6 +12526,16 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Limp Bizkit - Nookie",
     id: 1010383,
     source: "DLC",
+  },
+  nooneknows: {
+    fullName: "Queens of the Stone Age - No One Knows",
+    id: 1055,
+    source: "RB3",
+  },
+  noonelikeyou: {
+    fullName: "Scorpions - No One Like You",
+    id: 5033,
+    source: "RB4",
   },
   norain: {
     fullName: "Blind Melon - No Rain",
@@ -11890,6 +12632,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010612,
     source: "DLC",
   },
+  ohmygod: {
+    fullName: "Ida Maria - Oh My God",
+    id: 1029,
+    source: "RB3",
+  },
   ohmylove: {
     fullName: "John Lennon - Oh My Love",
     id: 1010090,
@@ -11929,6 +12676,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Talking Heads - Once in a Lifetime",
     id: 1005770,
     source: "DLC",
+  },
+  onearmedscissors: {
+    fullName: "At the Drive-In - One Armed Scissor",
+    id: 1081,
+    source: "RB3",
   },
   onelove: {
     fullName: "Bob Marley and the Wailers - One Love/People Get Ready",
@@ -12015,6 +12767,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006060,
     source: "DLC",
   },
+  orangecrush: {
+    fullName: "R.E.M. - Orange Crush",
+    id: 29,
+    source: "RB1",
+  },
   originofthespecies: {
     fullName: "MC Frontalot - Origin of Species",
     id: 1005649,
@@ -12035,6 +12792,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005974,
     source: "DLC",
   },
+  outerspacemuffs: {
+    fullName: "The Muffs - Outer Space",
+    id: 1093,
+    source: "RB3",
+  },
   outhereallnight: {
     fullName: "Damone - Out Here All Night",
     id: 1005719,
@@ -12049,6 +12811,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Soundgarden - Outshined",
     id: 1010339,
     source: "DLC",
+  },
+  outside: {
+    fullName: "Tribe - Outside",
+    id: 54,
+    source: "RB1",
   },
   outtathaway: {
     fullName: "The Vines - Outtathaway",
@@ -12065,6 +12832,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010337,
     source: "DLC",
   },
+  oyemiamor: {
+    fullName: "Maná - Oye Mi Amor",
+    id: 1087,
+    source: "RB3",
+  },
   pain: {
     fullName: "Jimmy Eat World - Pain",
     id: 1006206,
@@ -12079,6 +12851,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Judas Priest - Painkiller",
     id: 296,
     source: "RB2",
+  },
+  panama: {
+    fullName: "Van Halen - Panama",
+    id: 5065,
+    source: "RB4",
   },
   panicattack: {
     fullName: "Dream Theater - Panic Attack",
@@ -12225,10 +13002,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 300,
     source: "RB2",
   },
+  pistolwhipped: {
+    fullName: "Tijuana Sweetheart - Pistol Whipped",
+    id: 5054,
+    source: "RB4",
+  },
   playthegame: {
     fullName: "Queen - Play the Game",
     id: 1010122,
     source: "DLC",
+  },
+  pleasure: {
+    fullName: "Bang Camaro - Pleasure (Pleasure)",
+    id: 55,
+    source: "RB1",
+  },
+  plush: {
+    fullName: "Stone Temple Pilots - Plush",
+    id: 1031,
+    source: "RB3",
   },
   pointofknowreturn: {
     fullName: "Kansas - Point of Know Return (Live)",
@@ -12280,6 +13072,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005716,
     source: "DLC",
   },
+  portionsforfoxes: {
+    fullName: "Rilo Kiley - Portions for Foxes",
+    id: 1076,
+    source: "RB3",
+  },
   possumkingdom: {
     fullName: "Toadies - Possum Kingdom",
     id: 1010495,
@@ -12294,6 +13091,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Iron Maiden - Powerslave",
     id: 1005581,
     source: "DLC",
+  },
+  prayer: {
+    fullName: "Disturbed - Prayer",
+    id: 5008,
+    source: "RB4",
   },
   prayeroftherefugee: {
     fullName: "Rise Against - Prayer of the Refugee",
@@ -12410,6 +13212,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005016,
     source: "DLC",
   },
+  radarlove: {
+    fullName: "Golden Earring - Radar Love",
+    id: 1054,
+    source: "RB3",
+  },
   radiofreeeurope: {
     fullName: "R.E.M. - Radio Free Europe",
     id: 1006184,
@@ -12419,6 +13226,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Elvis Costello - Radio Radio",
     id: 1005553,
     source: "DLC",
+  },
+  rainbowinthedark: {
+    fullName: "Dio - Rainbow in the Dark",
+    id: 1047,
+    source: "RB3",
   },
   raiseyourglass: {
     fullName: "P!nk - Raise Your Glass",
@@ -12460,6 +13272,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005165,
     source: "DLC",
   },
+  realwildchild: {
+    fullName: "Everlife - Real Wild Child",
+    id: 774,
+    source: "Lego",
+  },
   realworld: {
     fullName: "All-American Rejects - Real World",
     id: 1005356,
@@ -12484,6 +13301,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Laura Bell Bundy - Rebound",
     id: 1006084,
     source: "DLC",
+  },
+  recession: {
+    fullName: "Jeff Allen - Recession (ft. Noelle LeBlanc and Naoko Takamoto)",
+    id: 5001,
+    source: "RB4",
   },
   redbarchetta: {
     fullName: "Rush - Red Barchetta",
@@ -12515,6 +13337,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005731,
     source: "DLC",
   },
+  rehab: {
+    fullName: "Amy Winehouse - Rehab",
+    id: 1044,
+    source: "RB3",
+  },
   rehash: {
     fullName: "Gorillaz - Re-Hash",
     id: 1005747,
@@ -12544,6 +13371,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Styx - Renegade",
     id: 1005521,
     source: "DLC",
+  },
+  reptilia: {
+    fullName: "The Strokes - Reptilia",
+    id: 31,
+    source: "RB1",
   },
   rescueme: {
     fullName: "Buckcherry - Rescue Me",
@@ -12579,6 +13411,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Vines - Ride",
     id: 1005626,
     source: "DLC",
+  },
+  rideawhiteswan: {
+    fullName: "T. Rex - Ride a White Swan",
+    id: 775,
+    source: "Lego",
   },
   ridersonthestorm: {
     fullName: "The Doors - Riders on the Storm",
@@ -12655,6 +13492,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005766,
     source: "DLC",
   },
+  rockandrollhoochiekoo: {
+    fullName: "Rick Derringer - Rock and Roll, Hoochie Koo",
+    id: 5018,
+    source: "RB4",
+  },
   rockandrollstar: {
     fullName: "Oasis - Rock 'n' Roll Star",
     id: 1005109,
@@ -12669,6 +13511,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Night Ranger - (You Can Still) Rock in America",
     id: 1005822,
     source: "DLC",
+  },
+  rocklobster: {
+    fullName: "The B-52's - Rock Lobster",
+    id: 1025,
+    source: "RB3",
   },
   rockme: {
     fullName: "Liz Phair - Rock Me",
@@ -12725,6 +13572,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005526,
     source: "DLC",
   },
+  rooftops: {
+    fullName: "Lostprophets - Rooftops (A Liberation Broadcast)",
+    id: 776,
+    source: "Lego",
+  },
   rooster: {
     fullName: "Alice in Chains - Rooster",
     id: 1005666,
@@ -12740,6 +13592,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010613,
     source: "DLC",
   },
+  roundabout: {
+    fullName: "Yes - Roundabout",
+    id: 1012,
+    source: "RB3",
+  },
   roundandround: {
     fullName: "Ratt - Round and Round",
     id: 307,
@@ -12749,6 +13606,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Police - Roxanne",
     id: 1005011,
     source: "DLC",
+  },
+  ruby: {
+    fullName: "Kaiser Chiefs - Ruby",
+    id: 777,
+    source: "Lego",
   },
   rubysoho: {
     fullName: "Rancid - Ruby Soho",
@@ -12810,6 +13672,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010344,
     source: "DLC",
   },
+  sabotage: {
+    fullName: "Beastie Boys - Sabotage",
+    id: 33,
+    source: "RB1",
+  },
   saintsoflosangeles: {
     fullName: "Mötley Crüe - Saints of Los Angeles",
     id: 1005082,
@@ -12870,6 +13737,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006118,
     source: "DLC",
   },
+  saturdaynightsalright: {
+    fullName: "Elton John - Saturday Night's Alright for Fighting",
+    id: 1053,
+    source: "RB3",
+  },
   saturdaynightspecial: {
     fullName: "Lynyrd Skynyrd - Saturday Night Special",
     id: 1010086,
@@ -12889,6 +13761,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Billy Joel - Say Goodbye to Hollywood",
     id: 1010125,
     source: "DLC",
+  },
+  sayitaintso: {
+    fullName: "Weezer - Say It Ain't So",
+    id: 34,
+    source: "RB1",
   },
   sayyoullhauntme: {
     fullName: "Stone Sour - Say You'll Haunt Me",
@@ -12979,6 +13856,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Snoop Dogg - Sexual Eruption",
     id: 1005888,
     source: "DLC",
+  },
+  seven: {
+    fullName: "Tijuana Sweetheart - Seven",
+    id: 56,
+    source: "RB1",
   },
   sevennationarmy: {
     fullName: "The White Stripes - Seven Nation Army",
@@ -13150,10 +14032,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005297,
     source: "DLC",
   },
+  shortandsweet: {
+    fullName: "Spinal Tap - Short and Sweet",
+    id: 778,
+    source: "Lego",
+  },
+  shortskirtlongjacket: {
+    fullName: "Cake - Short Skirt/Long Jacket",
+    id: 5028,
+    source: "RB4",
+  },
   shouldertotheplow: {
     fullName: "Breaking Wheel - Shoulder to the Plow",
     id: 331,
     source: "RB2",
+  },
+  shouldistay: {
+    fullName: "The Clash - Should I Stay or Should I Go",
+    id: 35,
+    source: "RB1",
   },
   shouldvebeenacowboy: {
     fullName: "Toby Keith - Should've Been a Cowboy",
@@ -13220,6 +14117,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005233,
     source: "DLC",
   },
+  sisterchristian: {
+    fullName: "Night Ranger - Sister Christian",
+    id: 1004,
+    source: "RB3",
+  },
   sistereurope: {
     fullName: "The Psychedelic Furs - Sister Europe",
     id: 1005871,
@@ -13280,6 +14182,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005350,
     source: "DLC",
   },
+  smokeonthewater: {
+    fullName: "Deep Purple - Smoke on the Water",
+    id: 1046,
+    source: "RB3",
+  },
   smokin: {
     fullName: "Boston - Smokin'",
     id: 1005074,
@@ -13320,6 +14227,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010081,
     source: "DLC",
   },
+  somebodytoldme: {
+    fullName: "The Killers - Somebody Told Me",
+    id: 5011,
+    source: "RB4",
+  },
   somebodytolove: {
     fullName: "Queen - Somebody to Love",
     id: 1005811,
@@ -13339,6 +14251,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Boston - Something About You",
     id: 1005072,
     source: "DLC",
+  },
+  somethingbigger: {
+    fullName: "Pretty Girls Make Graves - Something Bigger, Something Brighter",
+    id: 1091,
+    source: "RB3",
   },
   somethingfromnothing: {
     fullName: "Foo Fighters - Something From Nothing",
@@ -13364,6 +14281,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Dave Matthews Band - So Much to Say",
     id: 1010623,
     source: "DLC",
+  },
+  song2: {
+    fullName: "Blur - Song 2",
+    id: 780,
+    source: "Lego",
   },
   songofthecentury: {
     fullName: "Green Day - Song of the Century",
@@ -13420,6 +14342,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010336,
     source: "DLC",
   },
+  sowhat: {
+    fullName: "P!nk - So What",
+    id: 779,
+    source: "Lego",
+  },
   sowhatchawant: {
     fullName: "Beastie Boys - So What'cha Want",
     id: 311,
@@ -13434,6 +14361,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Killers - Spaceman",
     id: 1005349,
     source: "DLC",
+  },
+  spaceoddity: {
+    fullName: "David Bowie - Space Oddity",
+    id: 1098,
+    source: "RB3",
   },
   spacetruckin: {
     fullName: "Deep Purple - Space Truckin'",
@@ -13454,6 +14386,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Pearl Jam - Speed of Sound",
     id: 1005672,
     source: "DLC",
+  },
+  spiders: {
+    fullName: "System of a Down - Spiders",
+    id: 5060,
+    source: "RB4",
   },
   spiderwebs: {
     fullName: "No Doubt - Spiderwebs",
@@ -13519,6 +14456,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Yes - Starship Trooper",
     id: 1010343,
     source: "DLC",
+  },
+  startaband: {
+    fullName: "Brad Paisley - Start a Band (ft. Keith Urban)",
+    id: 5036,
+    source: "RB4",
   },
   startallover: {
     fullName: "Miley Cyrus - Start All Over",
@@ -13590,6 +14532,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005078,
     source: "DLC",
   },
+  stillintoyou: {
+    fullName: "Paramore - Still Into You",
+    id: 5034,
+    source: "RB4",
+  },
   stillofthenight: {
     fullName: "Whitesnake - Still of the Night",
     id: 1010519,
@@ -13624,6 +14571,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Stevie Nicks - Stop Draggin' My Heart Around",
     id: 1010207,
     source: "DLC",
+  },
+  stopmeifyouthink: {
+    fullName: "The Smiths - Stop Me if You Think You've Heard This One Before",
+    id: 1069,
+    source: "RB3",
   },
   stopstartagain: {
     fullName: "Hautewerk - Stop Start Again",
@@ -13665,6 +14617,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010208,
     source: "DLC",
   },
+  stumbleandfall: {
+    fullName: "Razorlight - Stumble and Fall",
+    id: 781,
+    source: "Lego",
+  },
   stupify: {
     fullName: "Disturbed - Stupify",
     id: 1005550,
@@ -13685,10 +14642,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005243,
     source: "DLC",
   },
+  suddenlyisee: {
+    fullName: "KT Tunstall - Suddenly I See",
+    id: 782,
+    source: "Lego",
+  },
   sudsinabucket: {
     fullName: "Sara Evans - Suds in the Bucket",
     id: 1005462,
     source: "DLC",
+  },
+  suffragettecity: {
+    fullName: "David Bowie - Suffragette City",
+    id: 36,
+    source: "RB1",
   },
   sugarbaby: {
     fullName: "Morningwood - Sugarbaby",
@@ -13709,6 +14676,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Slipknot - Sulfur",
     id: 1005854,
     source: "DLC",
+  },
+  summerof69: {
+    fullName: "Bryan Adams - Summer of '69",
+    id: 783,
+    source: "Lego",
   },
   summertimeblues: {
     fullName: "The Who - Summertime Blues (Live at Leeds)",
@@ -13760,6 +14732,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005777,
     source: "DLC",
   },
+  superunknownrb4: {
+    fullName: "Soundgarden - Superunknown",
+    id: 5048,
+    source: "RB4",
+  },
   supremegirl: {
     fullName: "The Sterns - Supreme Girl",
     id: 332,
@@ -13769,6 +14746,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Joe Satriani - Surfing with the Alien",
     id: 1005791,
     source: "DLC",
+  },
+  suspiciousminds: {
+    fullName: "Elvis Presley - Suspicious Minds",
+    id: 5012,
+    source: "RB4",
   },
   swamped: {
     fullName: "Lacuna Coil - Swamped",
@@ -13809,6 +14791,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Trace Adkins - Swing",
     id: 1005456,
     source: "DLC",
+  },
+  swingswing: {
+    fullName: "All-American Rejects - Swing, Swing",
+    id: 784,
+    source: "Lego",
   },
   synchronicity2: {
     fullName: "The Police - Synchronicity II",
@@ -13975,6 +14962,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005345,
     source: "DLC",
   },
+  thatsmell: {
+    fullName: "Lynyrd Skynyrd - That Smell",
+    id: 5014,
+    source: "RB4",
+  },
   thatsthahomie: {
     fullName: "Snoop Dogg - That's tha Homie",
     id: 1005930,
@@ -14015,6 +15007,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005540,
     source: "DLC",
   },
+  thebeautifulpeople: {
+    fullName: "Marilyn Manson - The Beautiful People",
+    id: 1008,
+    source: "RB3",
+  },
   theblackparade: {
     fullName: "My Chemical Romance - Welcome to the Black Parade",
     id: 1006121,
@@ -14039,6 +15036,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "No Doubt - The Climb",
     id: 1006035,
     source: "DLC",
+  },
+  thecon: {
+    fullName: "Tegan and Sara - The Con",
+    id: 1032,
+    source: "RB3",
   },
   theconjuring: {
     fullName: "Megadeth - The Conjuring",
@@ -14084,6 +15086,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Kutless - The Feeling",
     id: 1005305,
     source: "DLC",
+  },
+  thefinalcountdown: {
+    fullName: "Europe - The Final Countdown",
+    id: 785,
+    source: "Lego",
   },
   thefixer: {
     fullName: "Pearl Jam - The Fixer",
@@ -14140,6 +15147,21 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010139,
     source: "DLC",
   },
+  thehandthatfeeds: {
+    fullName: "Nine Inch Nails - The Hand That Feeds",
+    id: 37,
+    source: "RB1",
+  },
+  thehardestbutton: {
+    fullName: "The White Stripes - The Hardest Button to Button",
+    id: 1001,
+    source: "RB3",
+  },
+  theimpressionthatiget: {
+    fullName: "The Mighty Mighty Bosstones - The Impression That I Get",
+    id: 5037,
+    source: "RB4",
+  },
   thejack_live: {
     fullName: "AC/DC - The Jack (Live)",
     id: 1005291,
@@ -14160,6 +15182,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005028,
     source: "DLC",
   },
+  thekillingmoon: {
+    fullName: "Echo & The Bunnymen - The Killing Moon",
+    id: 1058,
+    source: "RB3",
+  },
   theleavingpt2: {
     fullName: "AFI - The Leaving Song, Pt. II",
     id: 1005852,
@@ -14169,6 +15196,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Grand Funk Railroad - The Loco-Motion",
     id: 1010017,
     source: "DLC",
+  },
+  thelook: {
+    fullName: "Roxette - The Look",
+    id: 1072,
+    source: "RB3",
   },
   thembellyfull: {
     fullName: "Bob Marley and the Wailers - Them Belly Full (But We Hungry)",
@@ -14185,10 +15217,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 318,
     source: "RB2",
   },
+  theoneilove: {
+    fullName: "R.E.M. - The One I Love",
+    id: 5039,
+    source: "RB4",
+  },
   theonlytime: {
     fullName: "Nine Inch Nails - The Only Time",
     id: 1010195,
     source: "DLC",
+  },
+  thepassenger: {
+    fullName: "Iggy Pop - The Passenger",
+    id: 786,
+    source: "Lego",
   },
   theperfectcrimeno2: {
     fullName: "The Decemberists - The Perfect Crime #2",
@@ -14199,6 +15241,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Red Hot Chili Peppers - The Power of Equality",
     id: 1005247,
     source: "DLC",
+  },
+  thepoweroflove: {
+    fullName: "Huey Lewis and the News - The Power of Love",
+    id: 1021,
+    source: "RB3",
   },
   thepretender: {
     fullName: "Foo Fighters - The Pretender",
@@ -14260,6 +15307,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010557,
     source: "DLC",
   },
+  theseeker: {
+    fullName: "The Who - The Seeker",
+    id: 5022,
+    source: "RB4",
+  },
   thestaticage: {
     fullName: "Green Day - The Static Age",
     id: 3042,
@@ -14310,6 +15362,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005880,
     source: "DLC",
   },
+  thewarrior: {
+    fullName: "Scandal - The Warrior",
+    id: 5029,
+    source: "RB4",
+  },
   thewaythatitshows: {
     fullName: "Richard Thompson - The Way That It Shows",
     id: 1005450,
@@ -14329,6 +15386,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Jimi Hendrix Experience - The Wind Cries Mary",
     id: 1006192,
     source: "DLC",
+  },
+  thewolf: {
+    fullName: "Mumford & Sons - The Wolf",
+    id: 5044,
+    source: "RB4",
   },
   theyreredhot: {
     fullName: "Red Hot Chili Peppers - They're Red Hot",
@@ -14364,6 +15426,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Fall Out Boy - This Ain't a Scene, It's an Arms Race",
     id: 1005098,
     source: "DLC",
+  },
+  thisbastardslife: {
+    fullName: "Swingin' Utters - This Bastard's Life",
+    id: 1103,
+    source: "RB3",
   },
   thiscalling: {
     fullName: "All That Remains - This Calling",
@@ -14450,6 +15517,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005975,
     source: "DLC",
   },
+  thunder: {
+    fullName: "Boys Like Girls - Thunder",
+    id: 787,
+    source: "Lego",
+  },
   thunderbirdsarego: {
     fullName: "Busted - Thunderbirds Are Go!",
     id: 1005667,
@@ -14459,6 +15531,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "AC/DC - Thunderstruck (Live)",
     id: 1005298,
     source: "DLC",
+  },
+  ticktickboom: {
+    fullName: "The Hives - Tick Tick Boom",
+    id: 788,
+    source: "Lego",
   },
   tieyoudown: {
     fullName: "Shaimus - Tie You Down",
@@ -14505,6 +15582,17 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005385,
     source: "DLC",
   },
+  timewehad: {
+    fullName: "The Mother Hips - Time We Had",
+    id: 57,
+    source: "RB1",
+  },
+  timmy: {
+    fullName:
+      "Timmy & the Lords of the Underworld - Timmy & the Lords of the Underworld",
+    id: 58,
+    source: "RB1",
+  },
   tnt_live: {
     fullName: "AC/DC - T.N.T. (Live)",
     id: 1005284,
@@ -14520,10 +15608,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005620,
     source: "DLC",
   },
+  tomsawyer: {
+    fullName: "Rush - Tom Sawyer (Cover)",
+    id: 38,
+    source: "RB1",
+  },
   tomsawyer2: {
     fullName: "Rush - Tom Sawyer (Original Version)",
     id: 1005231,
     source: "DLC",
+  },
+  tonguetied: {
+    fullName: "Grouplove - Tongue Tied",
+    id: 5069,
+    source: "RB4",
   },
   tonightimgonna: {
     fullName: "Spinal Tap - Tonight I'm Gonna Rock You Tonight",
@@ -14570,6 +15668,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005182,
     source: "DLC",
   },
+  toysintheattic: {
+    fullName: "Aerosmith - Toys in the Attic",
+    id: 5070,
+    source: "RB4",
+  },
   tragedy: {
     fullName: "Bee Gees - Tragedy",
     id: 1010052,
@@ -14584,6 +15687,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Clash - Train in Vain (Stand by Me)",
     id: 1005101,
     source: "DLC",
+  },
+  trainkeptarollin: {
+    fullName: "Aerosmith - Train Kept a Rollin' (Cover)",
+    id: 39,
+    source: "RB1",
   },
   transmaniaconmc: {
     fullName: "Blue Öyster Cult - Transmaniacon MC",
@@ -14645,6 +15753,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010042,
     source: "DLC",
   },
+  turnitaround: {
+    fullName: "Lucius - Turn It Around",
+    id: 5049,
+    source: "RB4",
+  },
   tuttoepossibile: {
     fullName: "Finley - Tutto è Possibile",
     id: 1005358,
@@ -14654,6 +15767,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Phish - Tweezer",
     id: 1010261,
     source: "DLC",
+  },
+  twoprinces: {
+    fullName: "Spin Doctors - Two Princes",
+    id: 789,
+    source: "Lego",
   },
   twoweeks: {
     fullName: "All That Remains - Two Weeks",
@@ -14760,6 +15878,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005537,
     source: "DLC",
   },
+  uptownfunk: {
+    fullName: "Mark Ronson - Uptown Funk (ft. Bruno Mars)",
+    id: 5021,
+    source: "RB4",
+  },
   urgent: {
     fullName: "Foreigner - Urgent",
     id: 1010240,
@@ -14785,10 +15908,25 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005660,
     source: "DLC",
   },
+  valerie: {
+    fullName: "The Zutons - Valerie",
+    id: 790,
+    source: "Lego",
+  },
   valleysofneptune: {
     fullName: "Jimi Hendrix - Valleys of Neptune",
     id: 1005999,
     source: "DLC",
+  },
+  vasoline: {
+    fullName: "Stone Temple Pilots - Vasoline",
+    id: 40,
+    source: "RB1",
+  },
+  vbomb: {
+    fullName: "Dark Wheels - V-Bomb",
+    id: 5041,
+    source: "RB4",
   },
   vengeanceismine: {
     fullName: "Alice Cooper - Vengeance Is Mine",
@@ -14799,6 +15937,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "BAP - Verdamp Lang Her",
     id: 1010133,
     source: "DLC",
+  },
+  violentshiver: {
+    fullName: "Benjamin Booker - Violent Shiver",
+    id: 5052,
+    source: "RB4",
   },
   visions: {
     fullName: "Abnormality - Visions",
@@ -14814,6 +15957,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Green Day - ¡Viva la Gloria!",
     id: 1005843,
     source: "DLC",
+  },
+  vivalaresistance: {
+    fullName: "Hypernova - Viva la Resistance",
+    id: 1097,
+    source: "RB3",
   },
   voices: {
     fullName: "Disturbed - Voices",
@@ -14885,20 +16033,40 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005325,
     source: "DLC",
   },
+  walkingonsunshine: {
+    fullName: "Katrina and the Waves - Walking on Sunshine",
+    id: 791,
+    source: "Lego",
+  },
   walkingonthemoon: {
     fullName: "The Police - Walking on the Moon",
     id: 1005628,
     source: "DLC",
+  },
+  walkinonthesun: {
+    fullName: "Smash Mouth - Walking on the Sun",
+    id: 1061,
+    source: "RB3",
   },
   walklikeanegyptian: {
     fullName: "The Bangles - Walk Like an Egyptian",
     id: 1005658,
     source: "DLC",
   },
+  walkoflife: {
+    fullName: "Dire Straits - Walk of Life",
+    id: 1092,
+    source: "RB3",
+  },
   walkthisway: {
     fullName: "Aerosmith - Walk This Way",
     id: 1010633,
     source: "DLC",
+  },
+  wanteddeadoralive: {
+    fullName: "Bon Jovi - Wanted Dead or Alive",
+    id: 41,
+    source: "RB1",
   },
   wanteddeadoralive2: {
     fullName: "Bon Jovi - Wanted Dead or Alive (RB3 version)",
@@ -14945,10 +16113,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005586,
     source: "DLC",
   },
+  waveofmutilation: {
+    fullName: "Pixies - Wave of Mutilation",
+    id: 42,
+    source: "RB1",
+  },
   weaponofchoice: {
     fullName: "Black Rebel Motorcycle Club - Weapon of Choice",
     id: 1005684,
     source: "DLC",
+  },
+  wearethechampions: {
+    fullName: "Queen - We Are the Champions",
+    id: 792,
+    source: "Lego",
   },
   wearethechampions2: {
     fullName: "Queen - We Are the Champions (RB3 version)",
@@ -15005,6 +16183,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010584,
     source: "DLC",
   },
+  welcomehome: {
+    fullName: "Coheed and Cambria - Welcome Home",
+    id: 43,
+    source: "RB1",
+  },
   welcometoparadise: {
     fullName: "Green Day - Welcome to Paradise",
     id: 3038,
@@ -15030,10 +16213,20 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1010034,
     source: "DLC",
   },
+  werewolvesoflondon: {
+    fullName: "Warren Zevon - Werewolves of London",
+    id: 1056,
+    source: "RB3",
+  },
   wewerentborn: {
     fullName: "Bon Jovi - We Weren't Born to Follow",
     id: 1010072,
     source: "DLC",
+  },
+  wewillrockyou1: {
+    fullName: "Queen - We Will Rock You",
+    id: 793,
+    source: "Lego",
   },
   wewillrockyou2: {
     fullName: "Queen - We Will Rock You (RB3 version)",
@@ -15081,6 +16274,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1006112,
     source: "DLC",
   },
+  whatsup: {
+    fullName: "4 Non Blondes - What's Up?",
+    id: 5023,
+    source: "RB4",
+  },
   whatsyourname: {
     fullName: "Lynyrd Skynyrd - What's Your Name?",
     id: 1010087,
@@ -15120,6 +16318,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "SpongeBob SquarePants - Where's Gary?",
     id: 1005493,
     source: "DLC",
+  },
+  whipit: {
+    fullName: "Devo - Whip It",
+    id: 1048,
+    source: "RB3",
   },
   whitefalconfuzz: {
     fullName: "The Mother Hips - White Falcon Fuzz",
@@ -15246,6 +16449,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005042,
     source: "DLC",
   },
+  wontgetfooled: {
+    fullName: "The Who - Won't Get Fooled Again",
+    id: 45,
+    source: "RB1",
+  },
   wontgohomewithoutyou: {
     fullName: "Maroon 5 - Won't Go Home Without You",
     id: 1010297,
@@ -15255,6 +16463,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Foo Fighters - Word Forward",
     id: 1005832,
     source: "DLC",
+  },
+  wordup: {
+    fullName: "KoRn - Word Up!",
+    id: 794,
+    source: "Lego",
   },
   workingfortheweekend: {
     fullName: "Loverboy - Working for the Weekend",
@@ -15316,6 +16529,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     id: 1005179,
     source: "DLC",
   },
+  yoshimibattles: {
+    fullName: "The Flaming Lips - Yoshimi Battles the Pink Robots Pt. 1",
+    id: 1035,
+    source: "RB3",
+  },
   youcandoit: {
     fullName: "No Doubt - You Can Do It",
     id: 1006038,
@@ -15331,6 +16549,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
       "The White Stripes - You Don't Know What Love Is (You Just Do as You're Told)",
     id: 1005937,
     source: "DLC",
+  },
+  yougiveloveabadname: {
+    fullName: "Bon Jovi - You Give Love a Bad Name",
+    id: 795,
+    source: "Lego",
   },
   yougiveloveabadname2: {
     fullName: "Bon Jovi - You Give Love a Bad Name (RB3 version)",
@@ -15351,6 +16574,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "The Jimi Hendrix Experience - You Got Me Floatin'",
     id: 1005995,
     source: "DLC",
+  },
+  youmakelovingfun: {
+    fullName: "Fleetwood Mac - You Make Loving Fun",
+    id: 5015,
+    source: "RB4",
   },
   youmayberight: {
     fullName: "Billy Joel - You May Be Right",
@@ -15401,6 +16629,11 @@ export const OFFICIAL_SONG_ID_SOURCE_NAME = {
     fullName: "Sleater-Kinney - You're No Rock N' Roll Fun",
     id: 1005219,
     source: "DLC",
+  },
+  yourlove: {
+    fullName: "The Outfield - Your Love",
+    id: 5004,
+    source: "RB4",
   },
   yourtouch: {
     fullName: "The Black Keys - Your Touch",
