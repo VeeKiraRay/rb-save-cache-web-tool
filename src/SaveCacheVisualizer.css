@@ -963,7 +963,9 @@ body {
 }
 
 @keyframes rbscv-spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .rbscv-loading-text {
@@ -995,4 +997,22 @@ body {
   color: var(--rbscv-text-dim);
   min-width: 32px;
   text-align: right;
+}
+
+.rbscv-svg__icon {
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+.rbscv-svg__icon-large {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+.rbscv-filter-option {
+  .rbscv-svg__icon-large,
+  .rbscv-svg__icon {
+    height: 1.2rem;
+    width: 1.2rem;
+  }
 }

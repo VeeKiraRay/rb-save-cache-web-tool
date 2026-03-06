@@ -22,6 +22,7 @@ import type SongRowCombined from "@/types/file/SongRowCombined";
 import SlidingPillSelector from "./SlidingPillSelector/SlidingPillSelector";
 import TableView from "./Table/TableView";
 import TableViewFlat from "./Table/TableViewFlat";
+import LighterDisplay from "./LighterDisplay/LighterDisplay";
 
 const multiSelectFilter = (
   row: Row<SongRowCombined>,
@@ -92,6 +93,8 @@ const buildTanStackColumns = (
       switch (def.render) {
         case "rowCount":
           return <span>{info.row.index + 1}</span>;
+        case "lighter":
+          return <LighterDisplay value={value as number} />;
         case "stars":
           return <StarsDisplay value={value as number} />;
         case "difficulty":

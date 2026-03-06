@@ -1,6 +1,7 @@
 import { useLayoutEffect, useMemo, useRef, useState } from "react";
 import ColumnDefinitions from "../../constants/ColumnDefinitions";
 import type { FilterType } from "@/types/ColumnDefinition";
+import LighterDisplay from "../LighterDisplay/LighterDisplay";
 
 // Lookup from COLUMN_DEFINITIONS key → render type for use in the filter display
 const RENDER_TYPE_MAP = Object.fromEntries(
@@ -26,6 +27,14 @@ const renderFilterOption = (columnId: string, value: unknown) => {
           <span style={isGold ? goldColor : undefined}>{`${stars} `}</span>
           {`(${value})`}
         </>
+      );
+    }
+    case "lighter": {
+      return (
+        <span className="rbscv-filter__option">
+          <LighterDisplay value={Math.max(0, Number(value) || 0)} />
+          {`(${value})`}
+        </span>
       );
     }
     case "difficulty":
@@ -212,9 +221,7 @@ const ColumnFilterDropdown = ({ column, anchorRef }) => {
       ref={dropdownRef}
       style={{
         top: pos.top,
-        ...(pos.right != null
-          ? { right: pos.right }
-          : { left: pos.left ?? 0 }),
+        ...(pos.right != null ? { right: pos.right } : { left: pos.left ?? 0 }),
       }}
       className="rbscv-filter-dropdown"
       onClick={(e) => e.stopPropagation()}

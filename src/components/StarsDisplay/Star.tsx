@@ -8,9 +8,7 @@ const Star = ({ filled, highlight }: StarProps) => {
   const strokeColor = filled ? fillColor : "--star-empty-fill";
   return (
     <svg
-      className={`star ${highlight ? "glow" : ""}`}
-      width="16"
-      height="16"
+      className={`rbscv-svg__icon star ${highlight ? "glow" : ""}`}
       viewBox="0 0 24 24"
     >
       <path

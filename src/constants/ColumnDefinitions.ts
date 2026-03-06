@@ -43,8 +43,8 @@ const general: ColumnDefinition[] = [
     key: "lighterRating",
     label: "Review",
     group: "General",
-    size: INITIAL_SIZE.SHORT,
-    render: "stars",
+    size: INITIAL_SIZE.MEDIUM,
+    render: "lighter",
     isFiltrable: true,
   },
   {

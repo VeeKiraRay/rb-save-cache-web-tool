@@ -17,7 +17,7 @@ export type Groups =
   | "Pro Keys"
   | "Technical";
 
-type Render = "stars" | "difficulty" | "percent" | "rowCount";
+type Render = "stars" | "difficulty" | "percent" | "rowCount" | "lighter";
 
 export type FilterType = "multiSelect" | "alphaGroup" | "presence";
 
