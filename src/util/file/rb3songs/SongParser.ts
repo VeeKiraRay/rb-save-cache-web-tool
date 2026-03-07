@@ -6,11 +6,7 @@ import STFSReader from "../stfs/STFSReader";
 
 const songMetadataFile = "songs.dta";
 
-type ProgressCallback = (
-  current: number,
-  total: number,
-  label: string,
-) => void;
+type ProgressCallback = (current: number, total: number, label: string) => void;
 
 const getDTAFiles = async (
   selectedFolderFiles: FileList,
