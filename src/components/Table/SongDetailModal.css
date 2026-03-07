@@ -1,0 +1,18 @@
+.rbscv-modal__body {
+  .rbscv-sdm__label {
+    white-space: nowrap;
+    font-weight: 600;
+    vertical-align: top;
+  }
+
+  .rbscv-sdm__value {
+    vertical-align: top;
+  }
+
+  .rbscv-sdm__table-body {
+    .rbscv-sdm__label,
+    .rbscv-sdm__value {
+      padding: 0.5rem;
+    }
+  }
+}

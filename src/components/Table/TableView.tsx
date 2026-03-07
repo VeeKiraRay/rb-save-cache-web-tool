@@ -12,9 +12,10 @@ interface TableProps {
   data: SongRowCombined[];
   reactTable: Table<SongRowCombined>;
   setColumnOrder: React.Dispatch<React.SetStateAction<ColumnOrderState>>;
+  onRowClick: (row: SongRowCombined) => void;
 }
 
-const TableView = ({ data, reactTable, setColumnOrder }: TableProps) => {
+const TableView = ({ data, reactTable, setColumnOrder, onRowClick }: TableProps) => {
   const parentRef = React.useRef(null);
   const [dragCol, setDragCol] = useState<string | null>(null);
 
@@ -244,7 +245,9 @@ const TableView = ({ data, reactTable, setColumnOrder }: TableProps) => {
                     position: "absolute",
                     top: 0,
                     transform: `translateY(${virtualRow.start}px)`,
+                    cursor: "pointer",
                   }}
+                  onClick={() => onRowClick(row.original)}
                 >
                   {leftPad > 0 && (
                     <td style={{ width: leftPad, flexShrink: 0 }} />

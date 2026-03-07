@@ -18,6 +18,7 @@ import StarsDisplay from "./StarsDisplay/StarsDisplay";
 import DifficultyBadge from "./DifficultyBadge";
 import PercentBar from "./PercentBar";
 import ColumnSettingsModal from "./Table/ColumnSettingsModal";
+import SongDetailModal from "./Table/SongDetailModal";
 import type SongRowCombined from "@/types/file/SongRowCombined";
 import SlidingPillSelector from "./SlidingPillSelector/SlidingPillSelector";
 import TableView from "./Table/TableView";
@@ -146,6 +147,7 @@ const TableContainer: React.FC<TableProps> = ({
 
   // --- UI state ---
   const [settingsOpen, setSettingsOpen] = useState<boolean>(false);
+  const [selectedRow, setSelectedRow] = useState<SongRowCombined | null>(null);
   const [virtualized, setVirtualized] = useState<boolean>(true);
   // --- Build columns (stable reference) ---
   const columns = useMemo(
@@ -251,12 +253,14 @@ const TableContainer: React.FC<TableProps> = ({
           data={data}
           reactTable={reactTable}
           setColumnOrder={setColumnOrder}
+          onRowClick={setSelectedRow}
         />
       ) : (
         <TableViewFlat
           data={data}
           reactTable={reactTable}
           setColumnOrder={setColumnOrder}
+          onRowClick={setSelectedRow}
         />
       )}
 
@@ -265,6 +269,14 @@ const TableContainer: React.FC<TableProps> = ({
         <ColumnSettingsModal
           table={reactTable}
           onClose={() => setSettingsOpen(false)}
+        />
+      )}
+
+      {/* Song detail modal */}
+      {selectedRow && (
+        <SongDetailModal
+          row={selectedRow}
+          onClose={() => setSelectedRow(null)}
         />
       )}
     </>

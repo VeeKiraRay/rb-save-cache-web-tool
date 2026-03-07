@@ -1,6 +1,7 @@
 @import "./assets/fonts/fonts.css";
 @import "./components/SlidingPillSelector/SlidingPillSelector.css";
 @import "./components/StarsDisplay/Star.css";
+@import "./components/Table/SongDetailModal.css";
 
 :root {
   --rbscv-bg: #0a0e17;

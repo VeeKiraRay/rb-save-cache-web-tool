@@ -10,9 +10,10 @@ interface TableProps {
   data: SongRowCombined[];
   reactTable: Table<SongRowCombined>;
   setColumnOrder: React.Dispatch<React.SetStateAction<ColumnOrderState>>;
+  onRowClick: (row: SongRowCombined) => void;
 }
 
-const TableViewFlat = ({ data, reactTable, setColumnOrder }: TableProps) => {
+const TableViewFlat = ({ data, reactTable, setColumnOrder, onRowClick }: TableProps) => {
   const [dragCol, setDragCol] = useState<string | null>(null);
 
   // --- Column drag-and-drop reorder ---
@@ -95,6 +96,8 @@ const TableViewFlat = ({ data, reactTable, setColumnOrder }: TableProps) => {
               <tr
                 key={row.id}
                 className={`rbscv-tr ${index % 2 === 0 ? "rbscv-tr--even" : "rbscv-tr--odd"}`}
+                style={{ cursor: "pointer" }}
+                onClick={() => onRowClick(row.original)}
               >
                 {row.getVisibleCells().map((cell) => (
                   <td
