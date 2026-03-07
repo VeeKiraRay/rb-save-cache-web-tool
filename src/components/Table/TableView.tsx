@@ -240,6 +240,7 @@ const TableView = ({
               const row = reactTable.getRowModel().rows[virtualRow.index];
               return (
                 <tr
+                  title={`Song: '${row.original.artist} - ${row.original.songName}',   ID: '${row.original.songID}'`}
                   key={virtualRow.index}
                   data-index={virtualRow.index}
                   ref={rowVirtualizer.measureElement}
