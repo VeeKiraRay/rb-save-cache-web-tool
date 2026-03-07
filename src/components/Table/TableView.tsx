@@ -15,7 +15,12 @@ interface TableProps {
   onRowClick: (row: SongRowCombined) => void;
 }
 
-const TableView = ({ data, reactTable, setColumnOrder, onRowClick }: TableProps) => {
+const TableView = ({
+  data,
+  reactTable,
+  setColumnOrder,
+  onRowClick,
+}: TableProps) => {
   const parentRef = React.useRef(null);
   const [dragCol, setDragCol] = useState<string | null>(null);
 
@@ -239,6 +244,8 @@ const TableView = ({ data, reactTable, setColumnOrder, onRowClick }: TableProps)
                   data-index={virtualRow.index}
                   ref={rowVirtualizer.measureElement}
                   className={`rbscv-tr ${virtualRow.index % 2 === 0 ? "rbscv-tr--even" : "rbscv-tr--odd"}`}
+                  tabIndex={0}
+                  aria-label={`${row.original.songName ?? ""} by ${row.original.artist ?? ""}`}
                   style={{
                     display: "flex",
                     width: totalColumnsWidth,
@@ -247,7 +254,13 @@ const TableView = ({ data, reactTable, setColumnOrder, onRowClick }: TableProps)
                     transform: `translateY(${virtualRow.start}px)`,
                     cursor: "pointer",
                   }}
-                  onClick={() => onRowClick(row.original)}
+                  onDoubleClick={() => onRowClick(row.original)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      onRowClick(row.original);
+                    }
+                  }}
                 >
                   {leftPad > 0 && (
                     <td style={{ width: leftPad, flexShrink: 0 }} />

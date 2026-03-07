@@ -96,8 +96,16 @@ const TableViewFlat = ({ data, reactTable, setColumnOrder, onRowClick }: TablePr
               <tr
                 key={row.id}
                 className={`rbscv-tr ${index % 2 === 0 ? "rbscv-tr--even" : "rbscv-tr--odd"}`}
+                tabIndex={0}
+                aria-label={`${row.original.songName ?? ""} by ${row.original.artist ?? ""}`}
                 style={{ cursor: "pointer" }}
-                onClick={() => onRowClick(row.original)}
+                onDoubleClick={() => onRowClick(row.original)}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onRowClick(row.original);
+                  }
+                }}
               >
                 {row.getVisibleCells().map((cell) => (
                   <td

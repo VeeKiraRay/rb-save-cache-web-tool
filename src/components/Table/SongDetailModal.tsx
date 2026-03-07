@@ -1,4 +1,4 @@
-import type React from "react";
+import { useEffect } from "react";
 import type SongRowCombined from "@/types/file/SongRowCombined";
 import LighterDisplay from "../LighterDisplay/LighterDisplay";
 
@@ -8,6 +8,14 @@ interface SongDetailModalProps {
 }
 
 const SongDetailModal = ({ row, onClose }: SongDetailModalProps) => {
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, [onClose]);
+
   const ytQuery = encodeURIComponent(
     `${row.artist ?? ""} ${row.songName ?? ""}`.trim(),
   );
